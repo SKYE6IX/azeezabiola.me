@@ -27,16 +27,19 @@
    display: flex;
    list-style: none;
    li {
-      border-left: 2px solid $line-color;
       display: flex;
       align-items: center;
-
+      &:first-child {
+         border-left: 2px solid $line-color;
+      }
       &:nth-child(-n + 3) {
          padding: 0px 31px;
+         border-right: 2px solid $line-color;
       }
       &:last-child {
          margin-left: auto;
          padding-left: 25px;
+         border-left: 2px solid $line-color;
       }
    }
    li a {

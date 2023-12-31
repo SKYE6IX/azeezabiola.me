@@ -3,6 +3,7 @@
       <div class="page__inner">
          <Header />
          <slot />
+         <Footer />
       </div>
    </div>
 </template>
@@ -20,5 +21,7 @@
    background: $primary-black-gaze;
    border: 1px solid $line-color;
    border-radius: 8px;
+   display: flex;
+   flex-direction: column;
 }
 </style>

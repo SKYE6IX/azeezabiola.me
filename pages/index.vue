@@ -5,3 +5,5 @@ const state = useState("counter", () => 0);
 <template>
    <div></div>
 </template>
+
+<style scoped></style>
