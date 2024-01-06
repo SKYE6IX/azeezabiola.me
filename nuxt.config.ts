@@ -19,7 +19,7 @@ export default defineNuxtConfig({
          },
       },
    },
-   modules: ["@nuxtjs/google-fonts"],
+   modules: ["@nuxtjs/google-fonts", "@nuxt/image"],
    googleFonts: {
       families: {
          "Fira Code": "200..900",

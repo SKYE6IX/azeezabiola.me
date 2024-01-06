@@ -1,9 +1,14 @@
-<script setup lang="ts">
-const text = useState("text", () => "about me");
-</script>
+<script setup lang="ts"></script>
 
 <template>
-   <div>
-      <h3>ABout me</h3>
+   <div class="about-page">
+      <About />
    </div>
 </template>
+
+<style scoped>
+.about-page {
+   height: 100%;
+   overflow: hidden;
+}
+</style>

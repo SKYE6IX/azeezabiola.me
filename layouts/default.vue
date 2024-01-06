@@ -14,6 +14,7 @@
    height: 100vh;
    background: $black-color;
    padding: 69px;
+   overflow: hidden;
 }
 .page__inner {
    height: 100%;
@@ -23,5 +24,6 @@
    border-radius: 8px;
    display: flex;
    flex-direction: column;
+   overflow: hidden;
 }
 </style>
