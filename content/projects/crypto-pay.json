@@ -1,0 +1,11 @@
+{
+   "id": 3,
+   "title": "Crypto Pay",
+   "description": "Crypto Pay Landing page was built to help showcase what the company offers and make it easier for user to understand how the company application works. Used a cutting-edge technologie of Nextjs and Sass to bring a dynamic page that included smooth animations.",
+   "links": {
+      "live_link": "https://crypto-pay.pages.dev",
+      "git_hub_link": "https://github.com/SKYE6IX/crypto-pay"
+   },
+   "tags": ["next", "react", "sass", "framer"],
+   "image": "/project-images/crypto_pay.png"
+}

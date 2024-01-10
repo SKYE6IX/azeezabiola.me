@@ -1,0 +1,11 @@
+{
+   "id": 2,
+   "title": "Fast Car Sale",
+   "description": "A landing page for a car sale company that help user easily get in touch with the company a single click.It was built with react and styled component Added a sever using Express and node mailer, which allow,Company to receive request call mails from users.",
+   "links": {
+      "live_link": "https://fastcarsale.ru",
+      "git_hub_link": "https://github.com/SKYE6IX/FCS-Landing-Page"
+   },
+   "tags": ["react", "styled-component"],
+   "image": "/project-images/fast_car_sale.png"
+}

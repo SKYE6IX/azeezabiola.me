@@ -1,0 +1,11 @@
+{
+   "id": 4,
+   "title": "Translate Document",
+   "description": "Crypto Pay Landing page was built to help showcase what the company offers and make it easier for user to understand how the company application works. Used a cutting-edge technologie of Nextjs and Sass to bring a dynamic page that included smooth animations.",
+   "links": {
+      "live_link": "https://translate-document.ru",
+      "git_hub_link": "https://github.com/SKYE6IX/translate-document"
+   },
+   "tags": ["next", "react", "sass"],
+   "image": "/project-images/translate_document.png"
+}

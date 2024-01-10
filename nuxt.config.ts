@@ -3,8 +3,8 @@ export default defineNuxtConfig({
    components: [
       {
          path: "~/components",
-         pathPrefix: false,
-      },
+         pathPrefix: false
+      }
    ],
    pages: true,
    devtools: { enabled: false },
@@ -14,18 +14,21 @@ export default defineNuxtConfig({
       css: {
          preprocessorOptions: {
             scss: {
-               additionalData: "@use '~/assets/scss/_variables.scss' as *; ",
-            },
-         },
-      },
+               additionalData: "@use '~/assets/scss/_variables.scss' as *; "
+            }
+         }
+      }
    },
-   modules: ["@nuxtjs/google-fonts", "@nuxt/image"],
+   modules: ["@nuxtjs/google-fonts", "@nuxt/image", "@nuxt/content"],
    googleFonts: {
       families: {
-         "Fira Code": "200..900",
+         "Fira Code": "200..900"
       },
       display: "swap",
       subsets: "latin",
-      prefetch: true,
+      prefetch: true
    },
+   content: {
+      watch: false
+   }
 });
