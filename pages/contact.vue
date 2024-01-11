@@ -1,3 +1,11 @@
 <template>
-   <div>Contact</div>
+   <div class="contact-page">
+      <Contact />
+   </div>
 </template>
+
+<style scoped lang="scss">
+.contact-page {
+   height: 100%;
+}
+</style>
