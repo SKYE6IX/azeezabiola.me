@@ -6,7 +6,7 @@
 .home-block__text {
    display: flex;
    flex-direction: column;
-   gap: 80px;
+   gap: 40px;
 }
 .home-block__text-title {
    h3,
@@ -58,6 +58,9 @@
       color: #e99287;
    }
 }
-.home-block__image {
-   z-index: 10;
+.home-block__marquee {
+   margin-top: 40px;
+   width: 700px;
+   height: 120px;
+   overflow-x: hidden;
 }

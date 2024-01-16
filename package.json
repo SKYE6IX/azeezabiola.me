@@ -26,6 +26,7 @@
    "dependencies": {
       "@nuxt/content": "^2.10.0",
       "@remixicon/vue": "^4.0.1",
-      "sass": "^1.69.6"
+      "sass": "^1.69.6",
+      "vue3-marquee": "^4.1.0"
    }
 }
