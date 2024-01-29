@@ -4,7 +4,8 @@ const navs = [
    { id: "1", name: "_hello", href: "/" },
    { id: "2", name: "_about-me", href: "/about" },
    { id: "3", name: "_projects", href: "/project" },
-   { id: "4", name: "_contact-me", href: "/contact" }
+   { id: "4", name: "_contact-me", href: "/contact" },
+   { id: "5", name: "_service", href: "/service" }
 ];
 </script>
 

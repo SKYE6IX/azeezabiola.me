@@ -1,11 +1,22 @@
 <script setup lang="ts">
+const { $anime } = useNuxtApp();
 import type { ProjectData } from "./Project.vue";
 
 type Props = Omit<ProjectData, "tags" | "id">;
 
 defineProps<Props>();
-</script>
 
+onMounted(() => {
+   $anime({
+      targets: ".card",
+      opacity: [0, 1],
+      translateY: [200, 0],
+      duration: 1000,
+      easing: "easeOutElastic",
+      delay: (el, i) => i * 100
+   });
+});
+</script>
 <template>
    <div class="card">
       <h3 class="card__title">// {{ title }}</h3>
@@ -38,7 +49,6 @@ defineProps<Props>();
       </div>
    </div>
 </template>
-
 <style scoped lang="scss">
 @import "./assets/card.scss";
 </style>

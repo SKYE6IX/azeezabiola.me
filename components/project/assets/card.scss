@@ -1,3 +1,7 @@
+// .card {
+//    transform: translateY(100px);
+// }
+
 .card__title {
    font-size: 1rem;
    font-weight: 450;
@@ -8,7 +12,6 @@
 }
 .card__inner-wrapper {
    width: 370.348px;
-   // height: 314.817px;
    height: auto;
    background: $primary-black-manga;
    border: 1px solid $line-color;

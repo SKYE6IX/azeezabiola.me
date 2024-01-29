@@ -67,5 +67,8 @@ defineProps<Prop>();
    padding: 10px 15px;
    height: 100%;
    overflow-y: scroll;
+   &::-webkit-scrollbar {
+      width: 2px;
+   }
 }
 </style>

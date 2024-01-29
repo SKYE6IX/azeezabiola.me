@@ -49,7 +49,7 @@ watch(
       </aside>
       <div class="project-main__content">
          <Card
-            v-for="project in filteredProjects"
+            v-for="(project, index) in filteredProjects"
             :key="project.id"
             :title="project.title"
             :image="project.image"
