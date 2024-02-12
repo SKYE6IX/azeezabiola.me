@@ -1,3 +1,4 @@
+@use "sass:map";
 // COLORS
 $line-color: rgba(30, 45, 61, 1);
 $gradient-blue: rgba(77, 91, 206, 1);
@@ -12,3 +13,20 @@ $white-color: rgba(255, 255, 255, 1);
 
 // FONTS
 $font-fira: var(--font-fira);
+
+// BREAKING POINT
+$breakingpoints: (
+   small: 567px,
+   medium: 850px,
+   large: 1025px
+);
+@mixin breakpoint($point) {
+   @media screen and (max-width: map.get($breakingpoints,$point)) {
+      @content;
+   }
+}
+// @mixin min-max-breakpoint($from, $to) {
+//   @media only screen and (min-width: $from) and (max-width: $to) {
+//     @content;
+//   }
+// }

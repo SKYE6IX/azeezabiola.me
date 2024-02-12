@@ -6,9 +6,9 @@ interface Prop {
 }
 defineProps<Prop>();
 const navList = {
-   professional: ["experience", "skills", "certificate"],
-   personalInfo: ["bio", "interest", "education"],
-   hobbies: ["music", "skating", "football"]
+   professional: ["experience", "skills"],
+   personalInfo: ["bio", "education"],
+   hobbies: ["music", "sports"]
 };
 </script>
 

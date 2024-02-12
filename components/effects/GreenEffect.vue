@@ -46,12 +46,3 @@ defineProps<Props>();
       </svg>
    </div>
 </template>
-
-<style scoped lang="scss">
-.green-effect {
-   position: absolute;
-   right: 0px;
-   width: 454px;
-   height: 492px;
-}
-</style>

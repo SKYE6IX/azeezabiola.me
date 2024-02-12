@@ -3,7 +3,9 @@
       <div class="page__inner">
          <Header />
          <slot />
-         <Footer />
+         <div class="page__footer">
+            <Footer />
+         </div>
       </div>
    </div>
 </template>
@@ -25,5 +27,14 @@
    display: flex;
    flex-direction: column;
    overflow: hidden;
+}
+
+@include breakpoint(small) {
+   .page {
+      padding: 15px;
+   }
+   .page__footer {
+      display: none;
+   }
 }
 </style>

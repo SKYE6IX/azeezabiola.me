@@ -59,4 +59,10 @@ const stackIcons = [
       max-height: 100%;
    }
 }
+@include breakpoint(small) {
+   .card {
+      width: 80px;
+      height: 80px;
+   }
+}
 </style>

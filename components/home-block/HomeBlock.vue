@@ -9,13 +9,14 @@
             </div>
             <div class="home-block__text-sub">
                <p>
-                  // I create web application to help business do better online
+                  <span> // </span> I create web application to help business do
+                  better online
                </p>
                <p>
-                  // Turning idea to real life product is what i enjoy doing the
-                  most
+                  <span> // </span> Turning idea to real life product is what i
+                  enjoy doing the most
                </p>
-               <p>// You can also see it on my Github page</p>
+               <p><span> // </span> You can also see it on my Github page</p>
                <p class="home-block__link">
                   const <span>githubLink</span> <span>=</span>
                   <a href=""> “https://github.com/example/url”</a>
@@ -26,8 +27,7 @@
             <Marquee />
          </div>
       </div>
-
-      <div>
+      <div class="home-block__game">
          <SnakeGame />
       </div>
    </div>

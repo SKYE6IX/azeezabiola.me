@@ -49,7 +49,7 @@ function setIsActive(state: boolean, id: string) {
 </script>
 <template>
    <div class="music">
-      <h2 class="music__title">My Playlist</h2>
+      <h2 class="music__title">Spotify top playlists:</h2>
       <ClientOnly fallback-tag="span" fallback="LOADING....">
          <div class="music__playlists-container">
             <div
@@ -77,6 +77,14 @@ function setIsActive(state: boolean, id: string) {
 </template>
 
 <style scoped lang="scss">
+.music__title {
+   font-size: 1.5rem;
+   font-weight: 500;
+   font-style: normal;
+   line-height: normal;
+   color: $secondary-grey-color;
+   margin-bottom: 20px;
+}
 .music__playlists-container {
    display: grid;
    grid-template-columns: repeat(3, 1fr);

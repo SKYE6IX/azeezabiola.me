@@ -19,22 +19,10 @@ defineProps<Prop>();
       <Skills />
    </section>
    <section
-      v-show="currentContentVisibility === 'certificate'"
-      class="about-content__section"
-   >
-      <Certificate />
-   </section>
-   <section
       v-show="currentContentVisibility === 'bio'"
       class="about-content__section"
    >
       <Bio />
-   </section>
-   <section
-      v-show="currentContentVisibility === 'interest'"
-      class="about-content__section"
-   >
-      <Interest />
    </section>
    <section
       v-show="currentContentVisibility === 'education'"
@@ -49,16 +37,10 @@ defineProps<Prop>();
       <Music />
    </section>
    <section
-      v-show="currentContentVisibility === 'skating'"
+      v-if="currentContentVisibility === 'sports'"
       class="about-content__section"
    >
-      <Skating />
-   </section>
-   <section
-      v-show="currentContentVisibility === 'football'"
-      class="about-content__section"
-   >
-      <Football />
+      <Sports />
    </section>
 </template>
 
