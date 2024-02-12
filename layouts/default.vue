@@ -27,6 +27,7 @@
    display: flex;
    flex-direction: column;
    overflow: hidden;
+   position: relative;
 }
 
 @include breakpoint(small) {

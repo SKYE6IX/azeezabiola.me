@@ -17,6 +17,7 @@ const setIsOpen = () => {
 <template>
    <header class="header">
       <h5 class="header__title">azeez-abiola</h5>
+      <!-- Desktop Navigation -->
       <nav class="header__navigation">
          <ul class="nav-lists">
             <li
@@ -29,6 +30,7 @@ const setIsOpen = () => {
             </li>
          </ul>
       </nav>
+      <!-- Menu Bar -->
       <div
          class="header__menu-bar"
          :class="{ 'menu-open': isOpen, 'menu-close': !isOpen }"
@@ -39,6 +41,23 @@ const setIsOpen = () => {
          <div class="bar"></div>
       </div>
    </header>
+   <!-- Mobile Naviagtion Container -->
+   <div class="header__menu-slide-in" :class="{ open: isOpen, close: !isOpen }">
+      <!-- Mobile Navigation -->
+      <ul class="nav-lists">
+         <li
+            v-for="nav in navs"
+            :key="nav.id"
+            class="nav-list"
+            :class="{ active: nav.href === route.fullPath }"
+            @click="setIsOpen"
+         >
+            <NuxtLink :to="nav.href">{{ nav.name }}</NuxtLink>
+         </li>
+      </ul>
+      <!-- Mobile Footer -->
+      <Footer />
+   </div>
 </template>
 
 <style scoped lang="scss">

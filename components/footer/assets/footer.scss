@@ -24,6 +24,7 @@
    height: 100%;
    display: flex;
    list-style: none;
+   padding: 0px;
    li {
       display: flex;
       align-items: center;
@@ -48,5 +49,21 @@
    transition: all 0.3s ease-in-out;
    &:hover {
       color: $white-color;
+   }
+}
+@include breakpoint(small) {
+   .footer {
+      padding: 0px 10px;
+   }
+   .footer__title {
+      width: 100%;
+      font-size: 0.8rem;
+   }
+   .footer__links {
+      li {
+         &:last-child {
+            border-left: none;
+         }
+      }
    }
 }
