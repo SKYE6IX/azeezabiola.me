@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const isOpen = useState("menu-bar-state", () => false);
 const route = useRoute();
 const navs = [
    { id: "1", name: "_hello", href: "/" },
@@ -7,12 +8,16 @@ const navs = [
    { id: "4", name: "_contact-me", href: "/contact" },
    { id: "5", name: "_service", href: "/service" }
 ];
+
+const setIsOpen = () => {
+   isOpen.value = !isOpen.value;
+};
 </script>
 
 <template>
    <header class="header">
       <h5 class="header__title">azeez-abiola</h5>
-      <nav>
+      <nav class="header__navigation">
          <ul class="nav-lists">
             <li
                v-for="nav in navs"
@@ -24,6 +29,15 @@ const navs = [
             </li>
          </ul>
       </nav>
+      <div
+         class="header__menu-bar"
+         :class="{ 'menu-open': isOpen, 'menu-close': !isOpen }"
+         @click="setIsOpen"
+      >
+         <div class="bar"></div>
+         <div class="bar"></div>
+         <div class="bar"></div>
+      </div>
    </header>
 </template>
 
