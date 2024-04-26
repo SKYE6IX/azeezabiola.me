@@ -8,7 +8,6 @@ const navs = [
    { id: "4", name: "_contact-me", href: "/contact" },
    { id: "5", name: "_service", href: "/service" }
 ];
-
 const setIsOpen = () => {
    isOpen.value = !isOpen.value;
 };

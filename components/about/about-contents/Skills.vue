@@ -45,10 +45,25 @@
 }
 h5 {
    font-size: 1.375rem;
-   @include text-style($white-color, 450);
+   @include text-style($white-color, 600);
 }
 p {
    font-size: 1.0625rem;
+   word-spacing: -6.5px;
    @include text-style($secondary-grey-color, 500);
+}
+@include breakpoint(small) {
+   .skill-block {
+      margin-bottom: 15px;
+   }
+   h5 {
+      font-size: 1.1rem;
+      font-weight: 700;
+   }
+   p {
+      font-size: 0.9rem;
+      word-spacing: -3.5px;
+      font-weight: 600;
+   }
 }
 </style>

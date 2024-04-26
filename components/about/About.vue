@@ -43,7 +43,7 @@ const changeContentVisibilty = (content: string) => {
             <div class="about__main-nav-list">
                <AboutNavLists
                   :current-visibility="currentVisibility"
-                  :change-content-visibilty="changeContentVisibilty"
+                  @change-content-visibilty="changeContentVisibilty"
                />
             </div>
             <div class="about__main-content">

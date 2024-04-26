@@ -33,10 +33,11 @@
    border-right: 2px solid $line-color;
 }
 .project-main__content {
-   overflow-y: scroll;
    width: calc(100% - 240px);
-   padding: 40px 0px 40px 40px;
+   padding: 20px 0px;
    display: flex;
    flex-wrap: wrap;
    gap: 40px;
+   justify-content: center;
+   overflow-y: scroll;
 }

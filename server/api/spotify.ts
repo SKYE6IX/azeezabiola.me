@@ -39,19 +39,21 @@ export default defineEventHandler(async (event) => {
          console.log("I have no idea for this error", error);
       }
    }
-   const res = await getAccessToken();
+
+   const tokenResponse = await getAccessToken();
+
    const playlistData = await $fetch<PlaylistResponseType>(
-      "https://api.spotify.com/v1/me/playlists",
+      "https://api.spotify.com/v1/me/playlists?limit=12",
       {
          method: "GET",
          headers: {
-            Authorization: `Bearer ${res?.access_token}`
+            Authorization: `Bearer ${tokenResponse?.access_token}`
          }
       }
    );
 
    const objectResponse = {
-      accessToken: res?.access_token,
+      accessToken: tokenResponse?.access_token,
       playlists: playlistData
    };
 

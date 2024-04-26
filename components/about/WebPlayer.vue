@@ -25,7 +25,7 @@ const playId = useState("play-id", () => "");
 const props = defineProps<Props>();
 const emit = defineEmits<{
    (e: "setIsPaused", state: boolean, id: string): void;
-   (e: "setIsActive", state: boolean, id: string): void;
+   (e: "setIsPlaying", state: boolean, id: string): void;
 }>();
 
 window.onSpotifyWebPlaybackSDKReady = () => {
@@ -54,12 +54,13 @@ window.onSpotifyWebPlaybackSDKReady = () => {
       emit("setIsPaused", state.paused, playId.value);
       player.value.getCurrentState().then((state) => {
          if (state) {
-            emit("setIsActive", true, playId.value);
+            emit("setIsPlaying", true, playId.value);
          }
       });
    });
    player.value.connect();
 };
+
 async function play(id: string) {
    let play_playlist = await $fetch(
       "https://api.spotify.com/v1/me/player/play?device_id=" + deviceId.value,

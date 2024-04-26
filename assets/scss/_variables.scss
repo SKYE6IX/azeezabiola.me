@@ -13,7 +13,6 @@ $white-color: rgba(255, 255, 255, 1);
 
 // FONTS
 $font-fira: var(--font-fira);
-
 // BREAKING POINT
 $breakingpoints: (
    small: 567px,
@@ -25,8 +24,22 @@ $breakingpoints: (
       @content;
    }
 }
-// @mixin min-max-breakpoint($from, $to) {
-//   @media only screen and (min-width: $from) and (max-width: $to) {
-//     @content;
-//   }
-// }
+
+// BREAKING POINT MIXIN
+@mixin media-query($type, $value) {
+   @if $type == "max-width" {
+      @media only screen and (max-width: $value) {
+         @content;
+      }
+   } @else if $type == "min-width" {
+      @media only screen and (min-width: $value) {
+         @content;
+      }
+   } @else if $type == "both" {
+      @media only screen and (min-width: nth($value,1)) and (max-width: nth($value,2)) {
+         @content;
+      }
+   } @else {
+      @warn "Invalid media query type:#{$type}. Please use 'max-width', 'min-width' or 'both' ";
+   }
+}

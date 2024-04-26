@@ -32,7 +32,7 @@ export default defineNuxtConfig({
    ],
    googleFonts: {
       families: {
-         "Fira Code": "200..900"
+         "Fira Code": [300, 400, 500, 600, 700]
       },
       display: "swap",
       subsets: "latin",

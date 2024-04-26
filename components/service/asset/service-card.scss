@@ -1,0 +1,118 @@
+.service-card {
+   position: relative;
+   width: 380px;
+   height: 550px;
+   padding: 10px 15px;
+   border-radius: 26px;
+   background: $primary-black-manga;
+   border: 1px solid $line-color;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   flex-shrink: 0;
+   z-index: 1;
+}
+.service-card__price {
+   font-size: 1.0625rem;
+   font-weight: 500;
+   font-style: normal;
+   line-height: normal;
+   color: $white-color;
+   .bold {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 46px;
+   }
+}
+.service-card__title {
+   font-size: 1.75rem;
+   font-weight: 500;
+   font-style: normal;
+   line-height: normal;
+   color: $white-color;
+   text-transform: uppercase;
+}
+.service-card__description {
+   font-size: 0.9375rem;
+   font-weight: 500;
+   font-style: normal;
+   line-height: normal;
+   color: $white-color;
+}
+.service-card__duration {
+   font-size: 1rem;
+   font-weight: 500;
+   font-style: normal;
+   line-height: normal;
+   color: $white-color;
+}
+.service-card__features {
+   list-style: none;
+   padding: 0px;
+   display: flex;
+   flex-direction: column;
+   li {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      font-style: normal;
+      line-height: normal;
+      color: $white-color;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 5px;
+   }
+}
+.service-card__button {
+   margin-top: auto;
+   width: 100%;
+   background: rgba(28, 43, 58, 1);
+   border-radius: 24px;
+   padding: 10px;
+   font-family: $font-fira;
+   font-size: 0.9375rem;
+   font-weight: 500;
+   font-style: normal;
+   line-height: normal;
+   color: $white-color;
+   transition: all 0.3s ease-in;
+   text-align: center;
+   &:hover {
+      background: rgba(38, 59, 80, 1);
+   }
+}
+@include media-query("max-width", "540px") {
+   .service-card {
+      width: 300px;
+      height: auto;
+      border-radius: 16px;
+   }
+   .service-card__price {
+      font-size: 0.9rem;
+      .bold {
+         font-size: 1.625rem;
+         line-height: 39px;
+      }
+   }
+   .service-card__title {
+      font-size: 1.125rem;
+   }
+   .service-card__description {
+      font-size: 0.875rem;
+      word-spacing: -5px;
+   }
+   .service-card__duration {
+      font-size: 0.9rem;
+   }
+   .service-card__features {
+      li {
+         font-size: 0.875rem;
+         gap: 5px;
+         margin-bottom: 3px;
+         word-spacing: -4px;
+      }
+   }
+   .service-card__button {
+      margin-top: 30px;
+   }
+}

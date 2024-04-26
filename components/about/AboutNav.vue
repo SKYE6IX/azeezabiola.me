@@ -11,11 +11,13 @@ defineProps<Prop>();
       <button
          @click="changeVisibility('professional')"
          :class="{ active: currentVisibility === 'professional' }"
+         class="button"
       >
          <ProIcon />
       </button>
       <button
          @click="changeVisibility('personal-info')"
+         class="button"
          :class="{ active: currentVisibility === 'personal-info' }"
       >
          <PersonalIcon />
@@ -23,6 +25,7 @@ defineProps<Prop>();
       <button
          @click="changeVisibility('hobbies')"
          :class="{ active: currentVisibility === 'hobbies' }"
+         class="button"
       >
          <HobbiesIcon />
       </button>
@@ -38,7 +41,7 @@ defineProps<Prop>();
    align-items: center;
    padding-top: 17px;
 }
-button {
+.button {
    background: none;
    border: none;
    cursor: pointer;
@@ -47,9 +50,18 @@ button {
       opacity: 0.4;
    }
 }
+.button__text {
+   display: none;
+}
 .active {
    svg {
       opacity: 1;
+   }
+}
+
+@include breakpoint(small) {
+   .about-nav {
+      display: none;
    }
 }
 </style>

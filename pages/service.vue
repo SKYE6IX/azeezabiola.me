@@ -11,5 +11,12 @@
    overflow: hidden;
    display: flex;
    align-items: center;
+   justify-content: center;
+}
+@include media-query("max-width", "540px") {
+   .service {
+      align-items: unset;
+      justify-content: unset;
+   }
 }
 </style>

@@ -53,4 +53,43 @@
 .about__main-content {
    width: 700px;
    height: 100%;
+   overflow-y: scroll;
+   &::-webkit-scrollbar {
+      width: 2px;
+   }
+}
+
+@include breakpoint(small) {
+   .about {
+      flex-direction: column;
+      &
+         :is(
+            .about__aside,
+            .about__main-header h3,
+            .about__main-nav-list,
+            .about__main-content
+         ) {
+         border-right: none;
+      }
+   }
+   .about__aside,
+   .about__main-header {
+      display: none;
+   }
+   .about__main {
+      height: 100%;
+   }
+   .about__main-inner-wrapper {
+      height: 100%;
+      flex-direction: column;
+      gap: 28px;
+   }
+   .about__main-nav-list {
+      margin-top: 20px;
+      height: auto;
+      width: 100%;
+   }
+   .about__main-content {
+      width: 100%;
+   }
 }

@@ -1,17 +1,4 @@
 <script setup lang="ts">
-const { $anime } = useNuxtApp();
-
-onMounted(() => {
-   $anime({
-      targets: ".sport-block__image-wrapper",
-      opacity: [0, 1],
-      scale: [0.5, 1],
-      duration: 2250,
-      easing: "easeOutElastic",
-      delay: (el, i) => 200 * (i + 1)
-   });
-});
-
 const footballContent = [
    {
       name: "football1",
@@ -42,7 +29,7 @@ const skateContent = [
                v-for="content in footballContent"
                class="sport-block__image-wrapper"
             >
-               <img
+               <NuxtImg
                   v-if="content.type === 'image'"
                   :src="content.scr"
                   alt=""
@@ -64,7 +51,7 @@ const skateContent = [
                v-for="content in skateContent"
                class="sport-block__image-wrapper"
             >
-               <img
+               <NuxtImg
                   v-if="content.type === 'image'"
                   :src="content.scr"
                   alt=""
@@ -83,6 +70,13 @@ const skateContent = [
 </template>
 
 <style scoped lang="scss">
+.sport-block__title {
+   font-size: 2.5rem;
+   font-weight: 500;
+   text-transform: uppercase;
+   color: $white-color;
+   line-height: 51px;
+}
 .sport-block__grid {
    display: grid;
    grid-template-columns: repeat(2, 1fr);

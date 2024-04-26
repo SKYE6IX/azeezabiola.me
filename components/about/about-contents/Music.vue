@@ -2,27 +2,32 @@
 type PlaylistTypes =
    | {
         is_paused: boolean;
-        is_active: boolean;
+        is_playing: boolean;
         id: string;
         images: {
            url: string;
         }[];
      }[]
    | undefined;
+
+// fetch playlist data from the created api
 const { data } = useFetch("/api/spotify", {
    lazy: true,
    dedupe: "cancel"
 });
+
 const token = useState("token", () => "");
 if (data.value != null) {
    token.value = data.value.accessToken;
 }
+
 const playlists = useState<PlaylistTypes>("playlists", () => {
    return data.value?.playlists.items.map((item) => {
-      const newObj = { ...item, is_paused: true, is_active: false };
+      const newObj = { ...item, is_paused: true, is_playing: false };
       return newObj;
    });
 });
+
 function setIsPaused(state: boolean, id: string) {
    if (playlists.value) {
       const index = playlists.value.findIndex((playlist) => playlist.id === id);
@@ -33,15 +38,15 @@ function setIsPaused(state: boolean, id: string) {
       }
    }
 }
-function setIsActive(state: boolean, id: string) {
+function setIsPlaying(state: boolean, id: string) {
    if (playlists.value) {
       playlists.value.forEach((playlist) => {
-         playlist.is_active = false;
+         playlist.is_playing = false;
       });
       const index = playlists.value.findIndex((playlist) => playlist.id === id);
       if (index !== -1) {
          const updatePlaylist = { ...playlists.value[index] };
-         updatePlaylist.is_active = state;
+         updatePlaylist.is_playing = state;
          playlists.value.splice(index, 1, updatePlaylist);
       }
    }
@@ -68,7 +73,7 @@ function setIsActive(state: boolean, id: string) {
                   :is_paused="playlist.is_paused"
                   :playlists="playlists"
                   @set-is-paused="setIsPaused"
-                  @set-is-active="setIsActive"
+                  @set-is-playing="setIsPlaying"
                />
             </div>
          </div>

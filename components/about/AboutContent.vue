@@ -7,31 +7,31 @@ defineProps<Prop>();
 
 <template>
    <section
-      v-show="currentContentVisibility === 'experience'"
+      v-if="currentContentVisibility === 'experience'"
       class="about-content__section"
    >
       <Experience />
    </section>
    <section
-      v-show="currentContentVisibility === 'skills'"
+      v-if="currentContentVisibility === 'skills'"
       class="about-content__section"
    >
       <Skills />
    </section>
    <section
-      v-show="currentContentVisibility === 'bio'"
+      v-if="currentContentVisibility === 'bio'"
       class="about-content__section"
    >
       <Bio />
    </section>
    <section
-      v-show="currentContentVisibility === 'education'"
+      v-if="currentContentVisibility === 'education'"
       class="about-content__section"
    >
       <Education />
    </section>
    <section
-      v-show="currentContentVisibility === 'music'"
+      v-if="currentContentVisibility === 'music'"
       class="about-content__section"
    >
       <Music />
@@ -46,11 +46,7 @@ defineProps<Prop>();
 
 <style scoped lang="scss">
 .about-content__section {
-   padding: 10px 15px;
-   height: 100%;
-   overflow-y: scroll;
-   &::-webkit-scrollbar {
-      width: 2px;
-   }
+   padding: 15px;
+   height: auto;
 }
 </style>

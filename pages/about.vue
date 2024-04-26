@@ -8,6 +8,7 @@ onMounted(() => {
    }
 });
 </script>
+
 <template>
    <div class="about-page">
       <About />
