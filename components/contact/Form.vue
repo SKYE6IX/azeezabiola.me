@@ -74,4 +74,20 @@
       background: rgba(38, 59, 80, 1);
    }
 }
+@include media-query("max-width", "540px") {
+   .contact-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+   .contact-form__input {
+      width: calc(100% - 54px);
+      margin-bottom: 18px;
+   }
+   .contact-form__button {
+      align-self: flex-start;
+      margin-left: 27px;
+   }
+}
 </style>

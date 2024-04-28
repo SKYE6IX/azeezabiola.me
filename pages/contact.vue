@@ -7,5 +7,6 @@
 <style scoped lang="scss">
 .contact-page {
    height: 100%;
+   overflow: hidden;
 }
 </style>

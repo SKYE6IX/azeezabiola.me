@@ -1,6 +1,34 @@
 <script setup lang="ts">
-const { $anime } = useNuxtApp();
 import { RiMailAddFill, RiPhoneFill, RiExternalLinkFill } from "@remixicon/vue";
+import gsap from "gsap";
+let ctx: gsap.Context;
+let tl: gsap.core.Timeline;
+let scopeRef = ref();
+const isTabsActive = useState(() => [false, false]);
+const tabState = computed(() => ({
+   contact: {
+      open: isTabsActive.value[0],
+      closed: !isTabsActive.value[0]
+   },
+   links: {
+      open: isTabsActive.value[1],
+      closed: !isTabsActive.value[1]
+   }
+}));
+onMounted(() => {
+   ctx = gsap.context((self) => {
+      gsap.set(".texts .letter", { opacity: 0 });
+      tl = gsap.timeline({ repeat: -1 }).to(".texts .letter", {
+         opacity: 1,
+         stagger: 0.5,
+         duration: 1.5,
+         ease: "sine.out"
+      });
+   }, scopeRef.value);
+});
+onUnmounted(() => {
+   ctx.revert();
+});
 function wrapWords(text: string) {
    const words = text.split(" ");
    const wrappedWords = words.map(
@@ -8,63 +36,62 @@ function wrapWords(text: string) {
    );
    return wrappedWords.join(" ");
 }
-onMounted(() => {
-   $anime
-      .timeline({ loop: true })
-      .add({
-         targets: ".texts .letter",
-         opacity: [0, 1],
-         easing: "easeInOutQuad",
-         duration: 2250,
-         delay: (el, i) => 150 * (i + 1)
-      })
-      .add({
-         targets: ".texts",
-         opacity: 0,
-         duration: 1000,
-         easing: "easeOutExpo",
-         delay: 1000
-      });
-});
+const setTabState = (index: number) => {
+   isTabsActive.value = [false, false];
+   isTabsActive.value[index] = !isTabsActive.value[index];
+};
 </script>
-
 <template>
-   <div class="contact">
-      <div class="contact__header">
-         <h3><ArrowDownFilled /> contacts</h3>
-      </div>
-      <div class="contact__inner-wrapper">
-         <aside class="contact__aside">
-            <div class="contact__links">
+   <div class="contact" ref="scopeRef">
+      <aside class="contact__aside">
+         <span
+            class="contact__aside-button"
+            @click="setTabState(0)"
+            :class="tabState.contact"
+         >
+            <ArrowDownFilled /> contacts
+         </span>
+         <ul class="contact__aside-contacts" :class="tabState.contact">
+            <li class="contact__aside-contacts-item">
                <NuxtLink><RiMailAddFill /> skye6ix@gmail.com</NuxtLink>
+            </li>
+            <li class="contact__aside-contacts-item">
                <NuxtLink><RiPhoneFill /> +79774604073</NuxtLink>
-            </div>
-            <div class="contact__social-links">
-               <h3><ArrowDownFilled /> find-me-also-in</h3>
+            </li>
+         </ul>
+         <span
+            class="contact__aside-button"
+            @click="setTabState(1)"
+            :class="tabState.links"
+            ><ArrowDownFilled /> find-me-also-in</span
+         >
+         <ul class="contact__aside-links" :class="tabState.links">
+            <li class="contact__aside-links-item">
                <NuxtLink><RiExternalLinkFill /> Twitter</NuxtLink>
+            </li>
+            <li class="contact__aside-links-item">
                <NuxtLink><RiExternalLinkFill /> Instagram</NuxtLink>
+            </li>
+            <li class="contact__aside-links-item">
                <NuxtLink><RiExternalLinkFill /> LinkedIn</NuxtLink>
-            </div>
-         </aside>
-         <div class="contact__main-content">
-            <div class="contact__form-wrapper">
-               <Form />
-            </div>
-            <div class="contact__text-wrapper">
-               <h2
-                  class="texts"
-                  v-html="
-                     wrapWords(
-                        'My approach is simple, make something great and make it personal. Join me and let build modern web applications together.'
-                     )
-                  "
-               ></h2>
-            </div>
-         </div>
+            </li>
+         </ul>
+      </aside>
+      <main class="contact__main">
+         <Form />
+      </main>
+      <div class="contact__text-animation">
+         <h2
+            class="texts"
+            v-html="
+               wrapWords(
+                  'My approach is simple, make something great and make it personal. Join me and let build modern web applications together.'
+               )
+            "
+         ></h2>
       </div>
    </div>
 </template>
-
 <style scoped lang="scss">
 @import "./asset/contact.scss";
 </style>
