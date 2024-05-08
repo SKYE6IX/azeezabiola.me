@@ -1,43 +1,76 @@
-.project-header {
+.project {
+   height: 100%;
+   display: flex;
+}
+.project__aside {
+   width: 225px;
+   border-right: 2px solid $line-color;
+   flex-shrink: 0;
+}
+.project__aside-header,
+.project__main-header {
    height: 40px;
    border-bottom: 2px solid $line-color;
+   font-size: 1rem;
+   font-weight: 400;
+   font-style: normal;
+   line-height: normal;
+   color: $white-color;
    display: flex;
-   h3 {
-      width: 240px;
-      border-right: 2px solid $line-color;
-      font-size: 1rem;
-      font-weight: 400;
-      font-style: normal;
-      line-height: normal;
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      padding-left: 10px;
-      color: $white-color;
-      span {
-         background-color: $secondary-grey-color;
-         width: 18px;
-         height: 18px;
-         clip-path: path(
-            "M9.34771 8.71879L13.0602 5.00629L14.1207 6.06679L10.4082 9.77929L14.1207 13.4918L13.0602 14.5523L9.34771 10.8398L5.63521 14.5523L4.57471 13.4918L8.28721 9.77929L4.57471 6.06679L5.63521 5.00629L9.34771 8.71879Z"
-         );
-      }
+   gap: 10px;
+   align-items: center;
+   padding-left: 18px;
+}
+.project__main {
+   flex-grow: 1;
+}
+.project__main-header {
+   width: 100%;
+   span {
+      background-color: $secondary-grey-color;
+      width: 18px;
+      height: 18px;
+      clip-path: path(
+         "M9.34771 8.71879L13.0602 5.00629L14.1207 6.06679L10.4082 9.77929L14.1207 13.4918L13.0602 14.5523L9.34771 10.8398L5.63521 14.5523L4.57471 13.4918L8.28721 9.77929L4.57471 6.06679L5.63521 5.00629L9.34771 8.71879Z"
+      );
    }
 }
-.project-main {
-   display: flex;
+.project__main-content {
    height: calc(100% - 40px);
-}
-.project-main__aside {
-   width: 240px;
-   border-right: 2px solid $line-color;
-}
-.project-main__content {
-   width: calc(100% - 240px);
    padding: 20px 0px;
    display: flex;
    flex-wrap: wrap;
-   gap: 40px;
+   gap: 20px;
    justify-content: center;
    overflow-y: scroll;
+}
+@include media-query("max-width", "540px") {
+   .project {
+      flex-direction: column;
+      overflow-y: scroll;
+   }
+   .project__aside {
+      width: 100%;
+      border: none;
+   }
+   .project__aside-header,
+   .project__main-header {
+      svg {
+         transition: all 0.3s linear;
+      }
+      border: none;
+   }
+   .project__aside-header.open {
+      svg {
+         rotate: -90deg;
+      }
+   }
+   .project__main-header {
+      span {
+         display: none;
+      }
+      &::before {
+         content: "//";
+      }
+   }
 }

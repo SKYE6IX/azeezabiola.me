@@ -6,11 +6,13 @@ import {
    RiVuejsFill,
    RiBootstrapFill
 } from "@remixicon/vue";
+type Props = { isNavOpen: boolean };
 const model = defineModel();
+defineProps<Props>();
 </script>
 
 <template>
-   <div class="project-navs">
+   <div class="project-navs" :class="{ open: isNavOpen, closed: !isNavOpen }">
       <div class="project-navs__item">
          <input type="checkbox" id="next" value="next" v-model="model" />
          <label for="next"><NextJsIcon /> Next</label>
@@ -60,11 +62,11 @@ const model = defineModel();
    display: flex;
    flex-direction: column;
    gap: 18px;
-   padding: 18px 0px 0px 18px;
+   padding: 18px 5px 0px 18px;
 }
 .project-navs__item {
    display: flex;
-   gap: 24px;
+   gap: 18px;
    align-items: center;
    input {
       appearance: none;
@@ -104,6 +106,20 @@ const model = defineModel();
          width: 24px;
          height: 24px;
       }
+   }
+}
+@include media-query("max-width", "540px") {
+   .project-navs {
+      padding: 0px 15px;
+      transition: all 0.3s linear;
+   }
+   .project-navs.open {
+      height: 370px;
+   }
+   .project-navs.closed {
+      height: 0px;
+      padding: 0px;
+      opacity: 0;
    }
 }
 </style>

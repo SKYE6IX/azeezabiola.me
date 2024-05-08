@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import gsap from "gsap";
 export interface ProjectData {
    id: number;
    title: string;
@@ -10,10 +11,13 @@ export interface ProjectData {
    tags: string[];
    image: string;
 }
+let ctx: gsap.Context;
+let tl: gsap.core.Timeline;
+const scopeRef = ref();
 const queryKeys = useState("query-key", () => []);
 const queryTexts = useState("query-text", () => "");
 const filteredProjects = useState<ProjectData[] | null>("filterdProject");
-const addSemiColumn = (queries: string[]) => {};
+const isNavOpen = useState(() => false);
 watch(
    queryKeys,
    async (newQueries) => {
@@ -37,26 +41,51 @@ watch(
       immediate: true
    }
 );
+onMounted(() => {
+   ctx = gsap.context(() => {
+      tl = gsap
+         .timeline()
+         .from(".card-animate", {
+            y: 100,
+            duration: 1.5,
+            stagger: 0.5,
+            opacity: 0
+         });
+   });
+});
+onUnmounted(() => {
+   ctx.revert();
+});
+const setIsNavOpen = () => {
+   isNavOpen.value = !isNavOpen.value;
+};
 </script>
 <template>
-   <div class="project-header">
-      <h3><ArrowDownFilled /> projects</h3>
-      <h3>{{ queryTexts }} <span></span></h3>
-   </div>
-   <div class="project-main">
-      <aside class="project-main__aside">
-         <ProjectNavs v-model="queryKeys" />
+   <div class="project">
+      <aside class="project__aside">
+         <h5
+            class="project__aside-header"
+            :class="{ open: isNavOpen }"
+            @click="setIsNavOpen"
+         >
+            <ArrowDownFilled /> projects
+         </h5>
+         <ProjectNavs v-model="queryKeys" :is-nav-open="isNavOpen" />
       </aside>
-      <div class="project-main__content">
-         <Card
-            v-for="(project, index) in filteredProjects"
-            :key="project.id"
-            :title="project.title"
-            :image="project.image"
-            :description="project.description"
-            :links="project.links"
-         />
-      </div>
+      <main class="project__main">
+         <h3 class="project__main-header">{{ queryTexts }} <span></span></h3>
+         <div class="project__main-content" ref="scopeRef">
+            <Card
+               v-for="(project, index) in filteredProjects"
+               :key="project.id"
+               :title="project.title"
+               :image="project.image"
+               :description="project.description"
+               :links="project.links"
+               :class-name="`card-animate`"
+            />
+         </div>
+      </main>
    </div>
 </template>
 

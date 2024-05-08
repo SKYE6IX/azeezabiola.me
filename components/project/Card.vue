@@ -1,34 +1,23 @@
 <script setup lang="ts">
-const { $anime } = useNuxtApp();
+type Props = Omit<ProjectData, "tags" | "id"> & {
+   className: string;
+};
 import type { ProjectData } from "./Project.vue";
 
-type Props = Omit<ProjectData, "tags" | "id">;
-
 defineProps<Props>();
-
-onMounted(() => {
-   $anime({
-      targets: ".card",
-      opacity: [0, 1],
-      translateY: [200, 0],
-      duration: 1000,
-      easing: "easeOutElastic",
-      delay: (el, i) => i * 100
-   });
-});
 </script>
 <template>
-   <div class="card">
+   <div class="card" :class="className">
       <h3 class="card__title">// {{ title }}</h3>
-      <div class="card__inner-wrapper">
+      <div class="card__inner-container">
          <div
             class="card__image-wrapper"
             :style="{
                backgroundImage: 'url(' + image + ')'
             }"
          ></div>
-         <div class="card__inner-content">
-            <p class="card__description">
+         <div class="card__description-wrapper">
+            <p class="card__description-text">
                {{ description }}
             </p>
             <div class="card__buttons">
