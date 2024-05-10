@@ -1,35 +1,37 @@
 <template>
    <div class="home-block">
       <div class="home-block__hero-content">
-         <div class="home-block__text">
-            <div class="home-block__text-title">
-               <h5>Hi all. I am</h5>
-               <h3>Azeez Abiola</h3>
-               <h4>> Front-end developer</h4>
+         <div class="home-block__text-container">
+            <div class="home-block__title-wrapper">
+               <h5 class="title-greeting">Hi all. I'm</h5>
+               <h3 class="title-name">Azeez Abiola</h3>
+               <h4 class="title-job">> Front-end developer</h4>
             </div>
-            <div class="home-block__text-sub">
-               <p>
+            <div class="home-block__sub-texts-container">
+               <p class="sub-text-item">
                   <span> // </span> I create web application to help business do
-                  better online
+                  better online.
                </p>
-               <p>
+               <p class="sub-text-item">
                   <span> // </span> Turning idea to real life product is what i
-                  enjoy doing the most
+                  enjoy doing the most.
                </p>
-               <p><span> // </span> You can also see it on my Github page</p>
-               <p class="home-block__link">
+               <p class="sub-text-item">
+                  <span> // </span> You can also see it on my Github page.
+               </p>
+               <p class="sub-text-item link">
                   const <span>githubLink</span> <span>=</span>
                   <a href=""> “https://github.com/example/url”</a>
                </p>
             </div>
          </div>
-         <div class="home-block__marquee">
-            <Marquee />
-         </div>
+         <Marquee />
       </div>
-      <div class="home-block__game">
+      <div class="home-block__game-container">
          <SnakeGame />
       </div>
+      <div class="blue-effect"></div>
+      <div class="green-effect"></div>
    </div>
 </template>
 

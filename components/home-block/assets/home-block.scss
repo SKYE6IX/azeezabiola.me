@@ -1,48 +1,57 @@
 .home-block {
+   width: 100%;
+   height: 100%;
    display: flex;
    align-items: center;
+   justify-content: center;
    gap: 70px;
+   overflow: hidden;
+   position: relative;
 }
-.home-block__text {
+.home-block__hero-content {
+   position: relative;
    display: flex;
    flex-direction: column;
-   gap: 40px;
+   gap: 50px;
+   z-index: 5;
 }
-.home-block__text-title {
-   h3,
-   h4,
-   h5 {
-      font-style: normal;
-      line-height: normal;
-      color: $white-color;
-      margin: 0px;
-   }
-   h5 {
-      font-size: 1.125rem;
-      font-weight: 450;
-   }
-   h3 {
-      font-size: 3.875rem;
-      font-weight: 400;
-   }
-   h4 {
-      font-size: 2rem;
-      font-weight: 450;
-      color: $secondary-blue-color;
-   }
+.home-block__text-container {
+   width: 100%;
 }
-.home-block__text-sub {
-   p {
-      font-size: 1rem;
-      font-weight: 450;
-      font-style: normal;
-      line-height: normal;
-      &:nth-child(-n + 3) {
-         color: $secondary-grey-color;
-      }
-   }
+.title-greeting,
+.title-name,
+.title-job {
+   font-style: normal;
+   line-height: normal;
+   color: $white-color;
+   margin: 0px;
 }
-.home-block__link {
+.title-greeting {
+   font-size: 1.125rem;
+   font-weight: 450;
+}
+.title-name {
+   font-size: 3.875rem;
+   font-weight: 600;
+}
+.title-job {
+   font-size: 2rem;
+   font-weight: 500;
+   color: $secondary-blue-color;
+}
+.home-block__sub-texts-container {
+   margin-top: 40px;
+}
+.sub-text-item {
+   font-size: 1rem;
+   font-weight: 400;
+   font-style: normal;
+   line-height: normal;
+   color: $secondary-grey-color;
+   word-spacing: -2.5px;
+   margin-bottom: 5px;
+}
+.sub-text-item.link {
    font-weight: 500;
    color: $secondary-blue-color;
    span {
@@ -58,50 +67,69 @@
       color: #e99287;
    }
 }
-.home-block__marquee {
-   margin-top: 40px;
-   width: 700px;
-   height: 120px;
-   overflow-x: hidden;
+.home-block__game-container {
+   position: relative;
+   z-index: 5;
+}
+.blue-effect,
+.green-effect {
+   position: absolute;
+   width: 454px;
+   height: 492px;
+   opacity: 0.4;
+   filter: blur(87px);
+   z-index: 1;
+}
+.green-effect {
+   background: #43d9ad;
+   transform: rotate(-94.305deg);
+   top: -50px;
+   right: 250px;
+}
+.blue-effect {
+   background: #4d5bce;
+   transform: rotate(13.508deg);
+   right: 91.4px;
+   bottom: 38.92px;
 }
 
-@include breakpoint(small) {
+@include media-query("max-width", "540px") {
    .home-block {
-      width: 100%;
       flex-direction: column;
-      gap: none;
+      gap: unset;
    }
    .home-block__hero-content {
       width: 100%;
+      height: 100%;
+      gap: unset;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0px;
    }
-   .home-block__text {
-      width: 100%;
-      padding: 0px 30px;
+   .home-block__text-container {
+      width: calc(100% - 30px);
    }
-   .home-block__text-title {
-      h5 {
-         margin-bottom: 10px;
-      }
-      h3 {
-         line-height: 1;
-         margin-bottom: 5px;
-      }
-      h4 {
-         font-size: 1.25rem;
-      }
+   .title-name {
+      font-weight: 500;
+      line-height: 65px;
    }
-   .home-block__text-sub {
-      p {
-         font-size: 0.875rem;
-         line-height: 1.4;
-         margin-bottom: 3px;
-      }
+   .title-job {
+      font-size: 1.5rem;
    }
-   .home-block__marquee {
-      width: 100%;
-      height: 80px;
-   }
-   .home-block__game {
+   .home-block__game-container {
       display: none;
+   }
+   .blue-effect,
+   .green-effect {
+      width: 255.65px;
+      height: 277.048px;
+   }
+   .green-effect {
+      top: 10px;
+      right: 120px;
+   }
+   .blue-effect {
+      right: 11px;
+      bottom: 180px;
    }
 }

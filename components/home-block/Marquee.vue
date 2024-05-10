@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import gsap from "gsap";
 import HtmlIcon from "../icons/HtmlIcon.vue";
 import Css3Icon from "../icons/Css3Icon.vue";
 import JavaScriptIcon from "../icons/JavaScriptIcon.vue";
@@ -34,15 +35,22 @@ const stackIcons = [
 </script>
 
 <template>
-   <Vue3Marquee :pause-on-hover="true" :duration="30">
-      <div v-for="stack in stackIcons" class="card" :key="stack.name">
+   <div class="marquee-wrapper">
+      <div v-for="stack in stackIcons" class="marquee-item" :key="stack.name">
          <component :is="stack.icon"></component>
       </div>
-   </Vue3Marquee>
+   </div>
 </template>
 
 <style scoped lang="scss">
-.card {
+.marquee-wrapper {
+   overflow-x: hidden;
+   width: 620px;
+   max-width: 100%;
+   display: flex;
+}
+.marquee-item {
+   flex-shrink: 0;
    width: 120px;
    height: 120px;
    padding: 10px;
@@ -57,12 +65,6 @@ const stackIcons = [
    svg {
       max-width: 100%;
       max-height: 100%;
-   }
-}
-@include breakpoint(small) {
-   .card {
-      width: 80px;
-      height: 80px;
    }
 }
 </style>
