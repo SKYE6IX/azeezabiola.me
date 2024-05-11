@@ -110,11 +110,14 @@
       width: calc(100% - 30px);
    }
    .title-name {
+      font-size: 2.625rem;
       font-weight: 500;
-      line-height: 65px;
+      line-height: 59.9px;
+      word-spacing: -15px;
    }
    .title-job {
       font-size: 1.5rem;
+      line-height: 31.1px;
    }
    .home-block__game-container {
       display: none;

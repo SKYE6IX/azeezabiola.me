@@ -13,7 +13,7 @@
 <style scoped lang="scss">
 .page {
    width: 100%;
-   height: 100vh;
+   height: 100dvh;
    background: $black-color;
    padding: 60px;
    overflow: hidden;

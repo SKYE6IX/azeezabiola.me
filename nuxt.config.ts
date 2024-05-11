@@ -24,12 +24,7 @@ export default defineNuxtConfig({
          }
       }
    },
-   modules: [
-      "@nuxtjs/google-fonts",
-      "@nuxt/image",
-      "@nuxt/content",
-      "@hypernym/nuxt-anime"
-   ],
+   modules: ["@nuxtjs/google-fonts", "@nuxt/image", "@nuxt/content"],
    googleFonts: {
       families: {
          "Fira Code": [300, 400, 500, 600, 700]
