@@ -32,12 +32,49 @@ const stackIcons = [
    { name: "eslint", icon: EslintIcon },
    { name: "vscode", icon: VsCodeIcon }
 ];
+let ctx: gsap.Context;
+let tween: gsap.core.Tween;
+const marqueeBoxes = ref<any>([]);
+const marqueeWidth = useState(() => 0);
+
+onMounted(() => {
+   marqueeWidth.value = marqueeBoxes.value[2].offsetWidth;
+   const moveX = marqueeWidth.value * stackIcons.length + 150;
+   ctx = gsap.context((self) => {
+      gsap.set(".marquee-item", {
+         x: (i) => i * 130
+      });
+      tween = gsap.to(".marquee-item", {
+         duration: 20,
+         ease: "none",
+         x: "+=" + moveX,
+         modifiers: {
+            x: gsap.utils.unitize((x) => parseInt(x) % moveX)
+         },
+         repeat: -1
+      });
+   });
+});
+onUnmounted(() => {
+   ctx.revert();
+});
 </script>
 
 <template>
    <div class="marquee-wrapper">
-      <div v-for="stack in stackIcons" class="marquee-item" :key="stack.name">
-         <component :is="stack.icon"></component>
+      <div class="marquee-boxes">
+         <div
+            v-for="stack in stackIcons"
+            class="marquee-item"
+            :key="stack.name"
+            :ref="
+               (el) => {
+                  marqueeBoxes.push(el);
+               }
+            "
+         >
+            <component :is="stack.icon"></component>
+         </div>
       </div>
    </div>
 </template>
@@ -46,13 +83,19 @@ const stackIcons = [
 .marquee-wrapper {
    overflow-x: hidden;
    width: 620px;
+   height: 120px;
    max-width: 100%;
-   display: flex;
+   position: relative;
+}
+.marquee-boxes {
+   height: 100%;
+   position: relative;
+   left: -120px;
 }
 .marquee-item {
-   flex-shrink: 0;
+   position: absolute;
    width: 120px;
-   height: 120px;
+   height: 100%;
    padding: 10px;
    border-radius: 10px;
    border: 2px solid $line-color;
@@ -61,7 +104,6 @@ const stackIcons = [
    display: flex;
    justify-content: center;
    align-items: center;
-   margin-right: 20px;
    svg {
       max-width: 100%;
       max-height: 100%;
