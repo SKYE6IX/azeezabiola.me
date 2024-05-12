@@ -1,95 +1,20 @@
 .about {
+   width: 100%;
    height: 100%;
    display: flex;
-   &
-      :is(
-         .about__aside,
-         .about__main-header h3,
-         .about__main-nav-list,
-         .about__main-content
-      ) {
-      border-right: 2px solid $line-color;
-   }
 }
 .about__aside {
-   width: 68px;
+   height: 100%;
+   width: 225px;
+   display: flex;
+   border-right: 2px solid $line-color;
 }
 .about__main {
-   width: 100%;
-}
-.about__main-header {
-   height: 40px;
-   display: flex;
-   border-bottom: 2px solid $line-color;
-   h3 {
-      padding-left: 15px;
-      width: 218px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1rem;
-      font-weight: 400;
-      font-style: normal;
-      line-height: normal;
-      color: $white-color;
-      span {
-         background-color: $secondary-grey-color;
-         width: 18px;
-         height: 18px;
-         clip-path: path(
-            "M9.34771 8.71879L13.0602 5.00629L14.1207 6.06679L10.4082 9.77929L14.1207 13.4918L13.0602 14.5523L9.34771 10.8398L5.63521 14.5523L4.57471 13.4918L8.28721 9.77929L4.57471 6.06679L5.63521 5.00629L9.34771 8.71879Z"
-         );
-      }
-   }
-}
-.about__main-inner-wrapper {
-   height: calc(100% - 40px);
-   display: flex;
-}
-.about__main-nav-list {
-   width: 218px;
    height: 100%;
-}
-.about__main-content {
-   width: 700px;
-   height: 100%;
+   width: 750px;
    overflow-y: scroll;
+   border-right: 2px solid $line-color;
    &::-webkit-scrollbar {
-      width: 2px;
-   }
-}
-
-@include breakpoint(small) {
-   .about {
-      flex-direction: column;
-      &
-         :is(
-            .about__aside,
-            .about__main-header h3,
-            .about__main-nav-list,
-            .about__main-content
-         ) {
-         border-right: none;
-      }
-   }
-   .about__aside,
-   .about__main-header {
-      display: none;
-   }
-   .about__main {
-      height: 100%;
-   }
-   .about__main-inner-wrapper {
-      height: 100%;
-      flex-direction: column;
-      gap: 28px;
-   }
-   .about__main-nav-list {
-      margin-top: 20px;
-      height: auto;
-      width: 100%;
-   }
-   .about__main-content {
-      width: 100%;
+      width: 0px;
    }
 }

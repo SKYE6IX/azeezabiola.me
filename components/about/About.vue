@@ -1,12 +1,10 @@
 <script setup lang="ts">
-const visibility = ref("professional");
-const currentVisibility = computed(() => visibility.value);
-
+const profileCategory = ref("professional");
+const activeProfileCategory = computed(() => profileCategory.value);
 const contentVisibility = ref("experience");
 const currentContentVisibility = computed(() => contentVisibility.value);
-
-watch(visibility, (newVisibility, oldvisibility) => {
-   switch (newVisibility) {
+watch(profileCategory, (newProfileCategory, oldProfileCategory) => {
+   switch (newProfileCategory) {
       case "personal-info":
          contentVisibility.value = "bio";
          break;
@@ -17,42 +15,26 @@ watch(visibility, (newVisibility, oldvisibility) => {
          contentVisibility.value = "experience";
    }
 });
-
-const changeVisibility = (visible: string) => {
-   visibility.value = visible;
+const changeProfileCategory = (category: string) => {
+   profileCategory.value = category;
 };
 const changeContentVisibilty = (content: string) => {
    contentVisibility.value = content;
 };
 </script>
-
 <template>
    <div class="about">
       <aside class="about__aside">
          <AboutNav
-            :change-visibility="changeVisibility"
-            :current-visibility="currentVisibility"
+            @change-profile-category="changeProfileCategory"
+            @change-content-visibilty="changeContentVisibilty"
+            :active-profile-category="activeProfileCategory"
+            :current-content-visibility="currentContentVisibility"
          />
       </aside>
-      <div class="about__main">
-         <div class="about__main-header">
-            <h3><ArrowDownFilled />{{ currentVisibility }}</h3>
-            <h3>{{ currentContentVisibility }} <span></span></h3>
-         </div>
-         <div class="about__main-inner-wrapper">
-            <div class="about__main-nav-list">
-               <AboutNavLists
-                  :current-visibility="currentVisibility"
-                  @change-content-visibilty="changeContentVisibilty"
-               />
-            </div>
-            <div class="about__main-content">
-               <AboutContent
-                  :current-content-visibility="currentContentVisibility"
-               />
-            </div>
-         </div>
-      </div>
+      <main class="about__main">
+         <AboutContent :current-content-visibility="currentContentVisibility" />
+      </main>
    </div>
 </template>
 
