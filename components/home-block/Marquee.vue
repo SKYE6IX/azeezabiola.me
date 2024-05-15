@@ -59,7 +59,6 @@ onUnmounted(() => {
    ctx.revert();
 });
 </script>
-
 <template>
    <div class="marquee-wrapper">
       <div class="marquee-boxes">
@@ -86,6 +85,7 @@ onUnmounted(() => {
    height: 120px;
    max-width: 100%;
    position: relative;
+   z-index: 1;
 }
 .marquee-boxes {
    height: 100%;
@@ -107,6 +107,11 @@ onUnmounted(() => {
    svg {
       max-width: 100%;
       max-height: 100%;
+   }
+}
+@include media-query("max-width", "540px") {
+   .marquee-wrapper {
+      width: 100%;
    }
 }
 </style>
