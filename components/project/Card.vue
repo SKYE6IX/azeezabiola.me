@@ -1,13 +1,10 @@
 <script setup lang="ts">
-type Props = Omit<ProjectData, "tags" | "id"> & {
-   className: string;
-};
+type Props = Omit<ProjectData, "tags" | "id">;
 import type { ProjectData } from "./Project.vue";
-
 defineProps<Props>();
 </script>
 <template>
-   <div class="card" :class="className">
+   <div class="card">
       <h3 class="card__title">// {{ title }}</h3>
       <div class="card__inner-container">
          <div

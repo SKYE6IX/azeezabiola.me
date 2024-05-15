@@ -15,41 +15,40 @@ let ctx: gsap.Context;
 let tl: gsap.core.Timeline;
 const scopeRef = ref();
 const queryKeys = useState("query-key", () => []);
-const queryTexts = useState("query-text", () => "");
+const queryTexts = useState("query-text", () => "projects");
 const filteredProjects = useState<ProjectData[] | null>("filterdProject");
 const isNavOpen = useState(() => false);
-watch(
-   queryKeys,
-   async (newQueries) => {
-      const { data } = await useAsyncData("projects", async () => {
-         const query = newQueries.length
-            ? { tags: { $contains: newQueries } }
-            : {};
-         const filterData = await queryContent<ProjectData>("/projects")
-            .where(query)
-            .find();
-         return filterData;
-      });
-      filteredProjects.value = data.value;
-      if (newQueries.length) {
-         queryTexts.value = newQueries.toString();
-      } else {
-         queryTexts.value = "projects";
-      }
-   },
-   {
-      immediate: true
-   }
+const { data } = await useAsyncData("project", () =>
+   queryContent<ProjectData>("projects").find()
 );
-onMounted(() => {
-   ctx = gsap.context(() => {
-      tl = gsap.timeline().from(".card-animate", {
+filteredProjects.value = data.value;
+watch(queryKeys, async (newQueries) => {
+   const { data } = await useAsyncData("projects", async () => {
+      const query = newQueries.length
+         ? { tags: { $contains: newQueries } }
+         : {};
+      const filterData = await queryContent<ProjectData>("projects")
+         .where(query)
+         .find();
+      return filterData;
+   });
+   filteredProjects.value = data.value;
+   if (newQueries.length) {
+      queryTexts.value = newQueries.toString();
+   } else {
+      queryTexts.value = "projects";
+   }
+});
+
+onMounted(async () => {
+   ctx = gsap.context((self) => {
+      tl = gsap.timeline().from(".card", {
          y: 100,
          duration: 1.5,
          stagger: 0.5,
          opacity: 0
       });
-   });
+   }, scopeRef.value);
 });
 onUnmounted(() => {
    ctx.revert();
@@ -80,7 +79,6 @@ const setIsNavOpen = () => {
                :image="project.image"
                :description="project.description"
                :links="project.links"
-               :class-name="`card-animate`"
             />
          </div>
       </main>
