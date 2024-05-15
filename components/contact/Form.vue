@@ -82,7 +82,7 @@
       align-items: center;
    }
    .contact-form__input {
-      width: calc(100% - 54px);
+      width: calc(100% - 30px);
       margin-bottom: 18px;
    }
    .contact-form__button {

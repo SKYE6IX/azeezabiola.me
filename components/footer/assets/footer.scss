@@ -51,7 +51,7 @@
       color: $white-color;
    }
 }
-@include breakpoint(small) {
+@include media-query("max-width", "540px") {
    .footer {
       padding: 0px 10px;
    }

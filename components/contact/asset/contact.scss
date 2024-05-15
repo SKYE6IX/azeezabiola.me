@@ -38,7 +38,7 @@
    padding: 17px 0px 26px 22px;
 }
 .contact__aside-contacts-item,
-.contact__aside-links {
+.contact__aside-links-item {
    a {
       @extend %font-style;
       @extend %text-display;
@@ -81,32 +81,36 @@
    .contact__aside-title {
       border: none !important;
       background: #1e2d3d;
+      padding-left: 15px;
       margin-bottom: 10px;
       svg {
          transition: rotate 0.3s linear;
       }
    }
-   .contact__aside-title.open {
+   .contact__aside-title.active {
       svg {
          rotate: -90deg;
       }
    }
-   .contact__aside-menu-wrapper,
+   .contact__aside-contacts,
+   .contact__aside-links {
+      padding: 15px;
+   }
    .contact__aside-menu-wrapper {
+      height: 0px;
+      opacity: 0;
+      pointer-events: none;
       transition: all 0.3s linear;
    }
-   .contact__aside-menu-wrapper.closed,
-   .contact__aside-menu-wrapper.closed {
-      opacity: 0;
-      height: 0px;
-   }
-   .contact__aside-menu-wrapper.open,
-   .contact__aside-menu-wrapper.open {
-      opacity: 1;
+   .contact__aside-menu-wrapper.active {
       height: 110px;
+      opacity: 1;
+      pointer-events: auto;
    }
    .contact__main {
       border: none;
+      align-items: flex-start;
+      margin-top: 20px;
    }
    .contact__text-animation {
       display: none;

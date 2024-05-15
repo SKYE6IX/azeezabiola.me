@@ -4,17 +4,7 @@ import gsap from "gsap";
 let ctx: gsap.Context;
 let tl: gsap.core.Timeline;
 let scopeRef = ref();
-const isTabsActive = useState(() => [false, false]);
-const tabState = computed(() => ({
-   contact: {
-      open: isTabsActive.value[0],
-      closed: !isTabsActive.value[0]
-   },
-   links: {
-      open: isTabsActive.value[1],
-      closed: !isTabsActive.value[1]
-   }
-}));
+const activeTab = useState(() => "contact");
 onMounted(() => {
    ctx = gsap.context((self) => {
       gsap.set(".texts .letter", { opacity: 0 });
@@ -36,9 +26,8 @@ function wrapWords(text: string) {
    );
    return wrappedWords.join(" ");
 }
-const setTabState = (index: number) => {
-   isTabsActive.value = [false, false];
-   isTabsActive.value[index] = !isTabsActive.value[index];
+const setActiveTab = (tab: string) => {
+   activeTab.value = tab;
 };
 </script>
 <template>
@@ -46,12 +35,15 @@ const setTabState = (index: number) => {
       <aside class="contact__aside">
          <span
             class="contact__aside-title"
-            @click="setTabState(0)"
-            :class="tabState.contact"
+            :class="{ active: activeTab === 'contact' }"
+            @click="setActiveTab('contact')"
          >
             <ArrowDownFilled /> contacts
          </span>
-         <div class="contact__aside-menu-wrapper" :class="tabState.contact">
+         <div
+            class="contact__aside-menu-wrapper"
+            :class="{ active: activeTab === 'contact' }"
+         >
             <ul class="contact__aside-contacts">
                <li class="contact__aside-contacts-item">
                   <NuxtLink><RiMailAddFill /> skye6ix@gmail.com</NuxtLink>
@@ -61,14 +53,16 @@ const setTabState = (index: number) => {
                </li>
             </ul>
          </div>
-
          <span
             class="contact__aside-title"
-            @click="setTabState(1)"
-            :class="tabState.links"
+            :class="{ active: activeTab === 'links' }"
+            @click="setActiveTab('links')"
             ><ArrowDownFilled /> find-me-also-in</span
          >
-         <div class="contact__aside-menu-wrapper" :class="tabState.links">
+         <div
+            class="contact__aside-menu-wrapper"
+            :class="{ active: activeTab === 'links' }"
+         >
             <ul class="contact__aside-links">
                <li class="contact__aside-links-item">
                   <NuxtLink><RiExternalLinkFill /> Twitter</NuxtLink>

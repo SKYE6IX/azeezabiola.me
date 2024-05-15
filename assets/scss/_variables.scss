@@ -13,17 +13,6 @@ $white-color: rgba(255, 255, 255, 1);
 
 // FONTS
 $font-fira: var(--font-fira);
-// BREAKING POINT
-$breakingpoints: (
-   small: 567px,
-   medium: 850px,
-   large: 1025px
-);
-@mixin breakpoint($point) {
-   @media screen and (max-width: map.get($breakingpoints,$point)) {
-      @content;
-   }
-}
 
 // BREAKING POINT MIXIN
 @mixin media-query($type, $value) {
