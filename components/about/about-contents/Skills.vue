@@ -1,35 +1,32 @@
 <template>
-   <div>
-      <div class="skill-block">
-         <h5>Soft-Skills:</h5>
-         <p>
-            Problem solving, Strong communication, Collaboration, Time
-            management, Creativity, Adaptability.
-         </p>
-      </div>
-      <div class="skill-block">
-         <h5>Frontend-Skills:</h5>
-         <p>
-            HTML, CSS, JavaScript, Typescript, React.js, Next.js, Vue, Nuxt,
-            Redux, React Query, SASS, Component-based MUI, Styled Components,
-            Framer.
-         </p>
-      </div>
-      <div class="skill-block">
-         <h5>Backend-Skills:</h5>
-         <p>
-            Node.js, Express, RESTful APIs, GraphQL APIs, Web-Socket, NO-SQL
-            (MongoDB with Mongoose), SQL (PostgreSQL with Prisma).
-         </p>
-      </div>
-      <div class="skill-block">
-         <h5>Tools:</h5>
-         <p>VsCode, Figma, Git, Git-Flow, Jest.</p>
-      </div>
-      <div class="skill-block">
-         <h5>Languages:</h5>
-         <p>English (Native), Russian (Elementary)</p>
-      </div>
+   <div class="skill">
+      <h5 class="skill__title">Soft-Skills:</h5>
+      <p class="skill__texts">
+         Problem solving, Strong communication, Collaboration, Time management,
+         Creativity, Adaptability.
+      </p>
+   </div>
+   <div class="skill">
+      <h5 class="skill__title">Frontend-Skills:</h5>
+      <p class="skill__texts">
+         HTML, CSS, JavaScript, Typescript, React.js, Next.js, Vue, Nuxt, Redux,
+         React Query, SASS, Component-based MUI, Styled Components, Framer.
+      </p>
+   </div>
+   <div class="skill">
+      <h5 class="skill__title">Backend-Skills:</h5>
+      <p class="skill__texts">
+         Node.js, Express, RESTful APIs, GraphQL APIs, Web-Socket, NO-SQL
+         (MongoDB with Mongoose), SQL (PostgreSQL with Prisma).
+      </p>
+   </div>
+   <div class="skill">
+      <h5 class="skill__title">Tools:</h5>
+      <p class="skill__texts">VsCode, Figma, Git, Git-Flow, Jest.</p>
+   </div>
+   <div class="skill">
+      <h5 class="skill__title">Languages:</h5>
+      <p class="skill__texts">English (Native), Russian (Elementary)</p>
    </div>
 </template>
 
@@ -40,30 +37,18 @@
    line-height: normal;
    color: $color;
 }
-.skill-block {
+.skill {
+   width: 100%;
    margin-bottom: 20px;
 }
-h5 {
+.skill__title {
    font-size: 1.375rem;
+   text-transform: uppercase;
    @include text-style($white-color, 600);
 }
-p {
+.skill__texts {
    font-size: 1.0625rem;
    word-spacing: -6.5px;
    @include text-style($secondary-grey-color, 500);
-}
-@include breakpoint(small) {
-   .skill-block {
-      margin-bottom: 15px;
-   }
-   h5 {
-      font-size: 1.1rem;
-      font-weight: 700;
-   }
-   p {
-      font-size: 0.9rem;
-      word-spacing: -3.5px;
-      font-weight: 600;
-   }
 }
 </style>

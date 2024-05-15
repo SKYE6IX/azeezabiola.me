@@ -62,12 +62,13 @@ defineProps<Props>();
    display: flex;
    flex-direction: column;
    gap: 18px;
-   padding: 18px 5px 0px 18px;
+   padding-top: 18px;
 }
 .project-navs__item {
    display: flex;
    gap: 18px;
    align-items: center;
+   padding-left: 18px;
    input {
       appearance: none;
       height: 18px;
@@ -110,11 +111,11 @@ defineProps<Props>();
 }
 @include media-query("max-width", "540px") {
    .project-navs {
-      padding: 0px 15px;
+      padding-top: 15px;
       transition: all 0.3s linear;
    }
    .project-navs.open {
-      height: 370px;
+      height: 380px;
    }
    .project-navs.closed {
       height: 0px;

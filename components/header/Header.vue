@@ -1,4 +1,13 @@
 <script setup lang="ts">
+const navRefs = ref<any>([]);
+const navWidths = useState<any>(() => []);
+const navItemVariables = computed(() => ({
+   "--home": navWidths.value[0] + "px",
+   "--about": navWidths.value[1] + "px",
+   "--project": navWidths.value[2] + "px",
+   "--contact": navWidths.value[3] + "px",
+   "--service": navWidths.value[4] + "px"
+}));
 const isOpen = useState("menu-bar-state", () => false);
 const route = useRoute();
 const navs = [
@@ -11,26 +20,34 @@ const navs = [
 const setIsOpen = () => {
    isOpen.value = !isOpen.value;
 };
+onMounted(() => {
+   navRefs.value.forEach((el: any) => {
+      navWidths.value.push(el.offsetWidth);
+   });
+});
 </script>
-
 <template>
    <header class="header">
       <h5 class="header__title">azeez-abiola</h5>
-      <!-- Desktop Navigation -->
       <nav class="header__navigation">
-         <ul class="nav-lists">
+         <ul class="nav-lists" :style="navItemVariables">
             <li
                v-for="nav in navs"
                :key="nav.id"
-               class="nav-list"
+               class="nav-item"
                :class="{ active: nav.href === route.fullPath }"
+               :ref="
+                  (el) => {
+                     navRefs.push(el);
+                  }
+               "
             >
                <NuxtLink :to="nav.href">{{ nav.name }}</NuxtLink>
             </li>
          </ul>
       </nav>
       <!-- Menu Bar -->
-      <div
+      <!-- <div
          class="header__menu-bar"
          :class="{ 'menu-open': isOpen, 'menu-close': !isOpen }"
          @click="setIsOpen"
@@ -38,11 +55,11 @@ const setIsOpen = () => {
          <div class="bar"></div>
          <div class="bar"></div>
          <div class="bar"></div>
-      </div>
+      </div> -->
    </header>
    <!-- Mobile Naviagtion Container -->
-   <div class="header__menu-slide-in" :class="{ open: isOpen, close: !isOpen }">
-      <!-- Mobile Navigation -->
+   <!-- <div class="header__menu-slide-in" :class="{ open: isOpen, close: !isOpen }">
+      Mobile Navigation
       <ul class="nav-lists">
          <li
             v-for="nav in navs"
@@ -54,9 +71,9 @@ const setIsOpen = () => {
             <NuxtLink :to="nav.href">{{ nav.name }}</NuxtLink>
          </li>
       </ul>
-      <!-- Mobile Footer -->
+      Mobile Footer
       <Footer />
-   </div>
+   </div> -->
 </template>
 
 <style scoped lang="scss">

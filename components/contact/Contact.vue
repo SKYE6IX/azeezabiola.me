@@ -45,37 +45,42 @@ const setTabState = (index: number) => {
    <div class="contact" ref="scopeRef">
       <aside class="contact__aside">
          <span
-            class="contact__aside-button"
+            class="contact__aside-title"
             @click="setTabState(0)"
             :class="tabState.contact"
          >
             <ArrowDownFilled /> contacts
          </span>
-         <ul class="contact__aside-contacts" :class="tabState.contact">
-            <li class="contact__aside-contacts-item">
-               <NuxtLink><RiMailAddFill /> skye6ix@gmail.com</NuxtLink>
-            </li>
-            <li class="contact__aside-contacts-item">
-               <NuxtLink><RiPhoneFill /> +79774604073</NuxtLink>
-            </li>
-         </ul>
+         <div class="contact__aside-menu-wrapper" :class="tabState.contact">
+            <ul class="contact__aside-contacts">
+               <li class="contact__aside-contacts-item">
+                  <NuxtLink><RiMailAddFill /> skye6ix@gmail.com</NuxtLink>
+               </li>
+               <li class="contact__aside-contacts-item">
+                  <NuxtLink><RiPhoneFill /> +79774604073</NuxtLink>
+               </li>
+            </ul>
+         </div>
+
          <span
-            class="contact__aside-button"
+            class="contact__aside-title"
             @click="setTabState(1)"
             :class="tabState.links"
             ><ArrowDownFilled /> find-me-also-in</span
          >
-         <ul class="contact__aside-links" :class="tabState.links">
-            <li class="contact__aside-links-item">
-               <NuxtLink><RiExternalLinkFill /> Twitter</NuxtLink>
-            </li>
-            <li class="contact__aside-links-item">
-               <NuxtLink><RiExternalLinkFill /> Instagram</NuxtLink>
-            </li>
-            <li class="contact__aside-links-item">
-               <NuxtLink><RiExternalLinkFill /> LinkedIn</NuxtLink>
-            </li>
-         </ul>
+         <div class="contact__aside-menu-wrapper" :class="tabState.links">
+            <ul class="contact__aside-links">
+               <li class="contact__aside-links-item">
+                  <NuxtLink><RiExternalLinkFill /> Twitter</NuxtLink>
+               </li>
+               <li class="contact__aside-links-item">
+                  <NuxtLink><RiExternalLinkFill /> Instagram</NuxtLink>
+               </li>
+               <li class="contact__aside-links-item">
+                  <NuxtLink><RiExternalLinkFill /> LinkedIn</NuxtLink>
+               </li>
+            </ul>
+         </div>
       </aside>
       <main class="contact__main">
          <Form />

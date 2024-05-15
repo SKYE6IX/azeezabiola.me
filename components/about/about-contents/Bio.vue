@@ -1,5 +1,5 @@
 <template>
-   <p>
+   <p class="bio">
       Highly skilled Frontend Developer with 3+ years of experience in
       developing and implementing frontend architectures that have resulted in
       significant increases in page load speed and user engagement. Proficient
@@ -12,7 +12,8 @@
    </p>
 </template>
 <style scoped lang="scss">
-p {
+.bio {
+   width: 100%;
    font-size: 1.125rem;
    font-weight: 500;
    font-style: normal;
@@ -20,10 +21,10 @@ p {
    word-spacing: -3px;
    color: $secondary-grey-color;
 }
-@include breakpoint(small) {
-   p {
+@include media-query("max-width", "540px") {
+   .bio {
       font-size: 1rem;
-      line-height: 23px;
+      line-height: 24px;
    }
 }
 </style>

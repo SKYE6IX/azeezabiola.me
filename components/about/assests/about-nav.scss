@@ -24,7 +24,8 @@
       transition: all 0.3s ease;
    }
 }
-.about-nav__item-title.profile.active {
+.about-nav__item-title.profile.active,
+.about-nav__item-title.contact {
    svg {
       transform: rotate(-90deg);
    }
@@ -59,4 +60,15 @@
 }
 .about-nav__item-list-item.active {
    color: $white-color;
+}
+@include media-query("max-width", "540px") {
+   .about-nav__item-title {
+      background: rgba(30, 45, 61, 1);
+      border-bottom: 0px;
+      margin-bottom: 3px;
+   }
+   .about-nav__item-lists-wrapper.active {
+      border-bottom: 0px;
+      margin-bottom: 0px;
+   }
 }

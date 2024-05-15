@@ -1,23 +1,31 @@
 <script setup lang="ts">
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 const footballContent = [
    {
       name: "football1",
-      scr: "/sport-media/football1webp.webp",
-      type: "image"
+      scr: "/sport-media/football1.jpg"
    },
-   { name: "football2", scr: "/sport-media/football2.webp", type: "image" },
-   { name: "football3", scr: "/sport-media/football3.webp", type: "image" },
-   { name: "football4", scr: "/sport-media/football4.mov", type: "video" }
+   { name: "football2", scr: "/sport-media/football2.jpg" },
+   { name: "football3", scr: "/sport-media/football3.jpg" }
 ];
 const skateContent = [
-   { name: "skate1", scr: "/sport-media/skate1.jpg", type: "image" },
-   { name: "skate2", scr: "/sport-media/skate2.jpg", type: "image" },
-   { name: "skate3", scr: "/sport-media/skate3.jpg", type: "image" },
-   { name: "skate4", scr: "/sport-media/skate4.jpg", type: "image" },
-   { name: "skate5", scr: "/sport-media/skate5.mov", type: "video" },
-   { name: "skate6", scr: "/sport-media/skate6.mov", type: "video" },
-   { name: "skate7", scr: "/sport-media/skate7.mov", type: "video" }
+   { name: "skate1", scr: "/sport-media/skate1.jpg" },
+   { name: "skate2", scr: "/sport-media/skate2.jpg" },
+   { name: "skate3", scr: "/sport-media/skate3.jpg" },
+   { name: "skate4", scr: "/sport-media/skate4.jpg" }
 ];
+let ctx: gsap.Context;
+let tl: gsap.core.Timeline;
+
+onMounted(() => {
+   ctx = gsap.context(() => {});
+});
+onUnmounted(() => {
+   ctx.revert();
+});
 </script>
 
 <template>
@@ -27,20 +35,14 @@ const skateContent = [
          <div class="sport-block__grid">
             <div
                v-for="content in footballContent"
-               class="sport-block__image-wrapper"
+               class="sport-block__media-wrapper football"
             >
                <NuxtImg
-                  v-if="content.type === 'image'"
+                  preload
                   :src="content.scr"
-                  alt=""
+                  alt="image"
                   :key="content.name"
                />
-               <video
-                  v-if="content.type === 'video'"
-                  :src="content.scr"
-                  :key="content.name"
-                  controls
-               ></video>
             </div>
          </div>
       </div>
@@ -49,20 +51,14 @@ const skateContent = [
          <div class="sport-block__grid">
             <div
                v-for="content in skateContent"
-               class="sport-block__image-wrapper"
+               class="sport-block__media-wrapper"
             >
                <NuxtImg
-                  v-if="content.type === 'image'"
+                  preload
                   :src="content.scr"
-                  alt=""
+                  alt="image"
                   :key="content.name"
                />
-               <video
-                  v-if="content.type === 'video'"
-                  :src="content.scr"
-                  :key="content.name"
-                  controls
-               ></video>
             </div>
          </div>
       </div>
@@ -70,6 +66,9 @@ const skateContent = [
 </template>
 
 <style scoped lang="scss">
+.sport-block {
+   width: 100%;
+}
 .sport-block__title {
    font-size: 2.5rem;
    font-weight: 500;
@@ -78,17 +77,24 @@ const skateContent = [
    line-height: 51px;
 }
 .sport-block__grid {
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
    gap: 20px;
+   row-gap: 20px;
 }
-.sport-block__image-wrapper {
+.sport-block__media-wrapper {
+   width: 340px;
+   height: auto;
    border-radius: 12px;
-   img,
-   video {
+   img {
       max-width: 100%;
       max-height: 100%;
       border-radius: inherit;
    }
+}
+.sport-block__media-wrapper.football:last-child {
+   margin-right: auto;
 }
 </style>

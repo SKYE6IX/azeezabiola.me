@@ -51,7 +51,9 @@ const aboutNavs = [
          </div>
       </div>
       <div class="about-nav__item">
-         <span class="about-nav__item-title"><ArrowDownFilled />contacts</span>
+         <span class="about-nav__item-title contact"
+            ><ArrowDownFilled />contacts</span
+         >
          <ul class="about-nav__item-lists">
             <li class="about-nav__item-list-item">
                <NuxtLink>

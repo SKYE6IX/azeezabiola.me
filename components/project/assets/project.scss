@@ -7,7 +7,7 @@
    border-right: 2px solid $line-color;
    flex-shrink: 0;
 }
-.project__aside-header,
+.project__aside-title,
 .project__main-header {
    height: 40px;
    border-bottom: 2px solid $line-color;
@@ -53,14 +53,18 @@
       width: 100%;
       border: none;
    }
-   .project__aside-header,
+   .project__aside-title {
+      background: rgba(30, 45, 61, 1);
+   }
+   .project__aside-title,
    .project__main-header {
       svg {
          transition: all 0.3s linear;
       }
       border: none;
    }
-   .project__aside-header.open {
+
+   .project__aside-title.open {
       svg {
          rotate: -90deg;
       }

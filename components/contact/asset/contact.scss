@@ -17,7 +17,7 @@
    width: 225px;
    border-right: 2px solid $line-color;
 }
-.contact__aside-button {
+.contact__aside-title {
    width: 100%;
    height: 40px;
    padding-left: 22px;
@@ -28,6 +28,9 @@
    &:nth-of-type(2) {
       border-top: 2px solid $line-color;
    }
+}
+.contact__aside-menu-wrapper {
+   width: 100%;
 }
 .contact__aside-contacts,
 .contact__aside-links {
@@ -75,7 +78,7 @@
       border: none;
       padding-top: 20px;
    }
-   .contact__aside-button {
+   .contact__aside-title {
       border: none !important;
       background: #1e2d3d;
       margin-bottom: 10px;
@@ -83,20 +86,24 @@
          transition: rotate 0.3s linear;
       }
    }
-   .contact__aside-button.open {
+   .contact__aside-title.open {
       svg {
          rotate: -90deg;
       }
    }
-   .contact__aside-contacts,
-   .contact__aside-links {
+   .contact__aside-menu-wrapper,
+   .contact__aside-menu-wrapper {
       transition: all 0.3s linear;
    }
-   .contact__aside-contacts.closed,
-   .contact__aside-links.closed {
+   .contact__aside-menu-wrapper.closed,
+   .contact__aside-menu-wrapper.closed {
       opacity: 0;
-      padding: 0px;
       height: 0px;
+   }
+   .contact__aside-menu-wrapper.open,
+   .contact__aside-menu-wrapper.open {
+      opacity: 1;
+      height: 110px;
    }
    .contact__main {
       border: none;

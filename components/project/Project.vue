@@ -43,14 +43,12 @@ watch(
 );
 onMounted(() => {
    ctx = gsap.context(() => {
-      tl = gsap
-         .timeline()
-         .from(".card-animate", {
-            y: 100,
-            duration: 1.5,
-            stagger: 0.5,
-            opacity: 0
-         });
+      tl = gsap.timeline().from(".card-animate", {
+         y: 100,
+         duration: 1.5,
+         stagger: 0.5,
+         opacity: 0
+      });
    });
 });
 onUnmounted(() => {
@@ -64,7 +62,7 @@ const setIsNavOpen = () => {
    <div class="project">
       <aside class="project__aside">
          <h5
-            class="project__aside-header"
+            class="project__aside-title"
             :class="{ open: isNavOpen }"
             @click="setIsNavOpen"
          >

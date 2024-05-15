@@ -83,7 +83,7 @@
 }
 @include media-query("max-width", "540px") {
    .service-card {
-      width: 300px;
+      width: calc(100% - 30px);
       height: auto;
       border-radius: 16px;
    }
