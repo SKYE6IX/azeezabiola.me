@@ -1,7 +1,7 @@
 {
    // https://nuxt.com/docs/guide/concepts/typescript
    "compilerOptions": {
-      "types": ["@types/spotify-web-playback-sdk"]
+      // "types": ["@types/spotify-web-playback-sdk"]
    },
    "extends": "./.nuxt/tsconfig.json"
 }

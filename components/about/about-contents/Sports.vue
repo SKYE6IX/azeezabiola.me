@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
 const footballContent = [
    {
       name: "football1",
@@ -21,7 +19,14 @@ let ctx: gsap.Context;
 let tl: gsap.core.Timeline;
 
 onMounted(() => {
-   ctx = gsap.context(() => {});
+   ctx = gsap.context(() => {
+      tl = gsap.timeline().from(".sport-block__media-wrapper", {
+         opacity: 0,
+         scale: 0.7,
+         duration: 1.5,
+         stagger: 0.8
+      });
+   });
 });
 onUnmounted(() => {
    ctx.revert();
@@ -35,7 +40,7 @@ onUnmounted(() => {
          <div class="sport-block__grid">
             <div
                v-for="content in footballContent"
-               class="sport-block__media-wrapper football"
+               class="sport-block__media-wrapper"
             >
                <NuxtImg
                   preload
@@ -78,23 +83,20 @@ onUnmounted(() => {
 }
 .sport-block__grid {
    width: 100%;
-   display: flex;
-   flex-wrap: wrap;
+   display: grid;
+   grid-template-columns: repeat(2, auto);
    justify-content: center;
    gap: 20px;
-   row-gap: 20px;
 }
 .sport-block__media-wrapper {
    width: 340px;
-   height: auto;
+   aspect-ratio: 3 / 4;
    border-radius: 12px;
    img {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: inherit;
    }
-}
-.sport-block__media-wrapper.football:last-child {
-   margin-right: auto;
 }
 </style>

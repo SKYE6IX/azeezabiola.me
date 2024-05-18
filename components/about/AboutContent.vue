@@ -25,12 +25,6 @@ defineProps<Prop>();
       <Bio />
    </section>
    <section
-      v-if="currentContentVisibility === 'education'"
-      class="about-content__section"
-   >
-      <Education />
-   </section>
-   <section
       v-if="currentContentVisibility === 'music'"
       class="about-content__section"
    >

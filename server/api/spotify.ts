@@ -1,23 +1,28 @@
 export default defineEventHandler(async (event) => {
-   const config = useRuntimeConfig(event);
    type TokenResponseType = {
       access_token: string;
       token_type: string;
       expires_in: string;
       scope: string;
    };
-   type PlaylistResponseType = {
-      href: string;
-      items: {
-         id: string;
-         images: {
-            url: string;
-         }[];
+   type Playlists = {
+      id: string;
+      uri: string;
+      images: {
+         url: string;
       }[];
+   }[];
+   type Response = {
+      items: Playlists;
    };
-   async function getAccessToken() {
+
+   async function getAccessToken(): Promise<
+      TokenResponseType | undefined | any
+   > {
       const credentials = Buffer.from(
-         config.spotifyClientId + ":" + config.spotifyClientSecret
+         process.env.NUXT_SPOTIFY_CLIENT_ID +
+            ":" +
+            process.env.NUXT_SPOTIFY_CLIENT_SECRET
       ).toString("base64");
       try {
          const response = await $fetch<TokenResponseType>(
@@ -30,19 +35,19 @@ export default defineEventHandler(async (event) => {
                },
                body: new URLSearchParams({
                   grant_type: "refresh_token",
-                  refresh_token: config.spotifyRefreshToken
+                  refresh_token: process.env.NUXT_SPOTIFY_REFRESH_TOKEN!
                })
             }
          );
          return response;
       } catch (error) {
-         console.log("I have no idea for this error", error);
+         console.log(error);
+         console.log("Error from acess token");
+         return error;
       }
    }
-
    const tokenResponse = await getAccessToken();
-
-   const playlistData = await $fetch<PlaylistResponseType>(
+   const playlistData = await $fetch<Response>(
       "https://api.spotify.com/v1/me/playlists?limit=12",
       {
          method: "GET",
@@ -51,11 +56,5 @@ export default defineEventHandler(async (event) => {
          }
       }
    );
-
-   const objectResponse = {
-      accessToken: tokenResponse?.access_token,
-      playlists: playlistData
-   };
-
-   return objectResponse;
+   return playlistData.items;
 });

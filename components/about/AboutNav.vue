@@ -16,7 +16,7 @@ const aboutNavs = [
    },
    {
       category: "personal-info",
-      menuItems: ["bio", "education"]
+      menuItems: ["bio"]
    },
    {
       category: "hobbies",
