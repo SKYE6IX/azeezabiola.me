@@ -32,21 +32,27 @@
 }
 .about-nav__item-lists-wrapper {
    width: 100%;
-   height: 0px;
-   opacity: 0;
-   pointer-events: none;
-   transition: all 0.3s linear;
+   display: grid;
+   grid-template-rows: 0fr;
+   transition: grid-template-rows 0.3s linear;
 }
 .about-nav__item-lists-wrapper.active {
-   height: 90px;
-   opacity: 1;
-   pointer-events: auto;
+   grid-template-rows: 1fr;
    border-bottom: 2px solid $line-color;
+   & .about-nav__item-lists {
+      padding-top: 10px;
+      padding-bottom: 10px;
+   }
 }
 .about-nav__item-lists {
+   overflow: hidden;
    list-style: none;
    padding: 0px;
-   padding: 17px 12px 0px 16px;
+   padding-left: 16px;
+   transition: padding 0.3s linear;
+}
+.about-nav__item-lists.contact {
+   padding-top: 10px;
 }
 .about-nav__item-list-item,
 .about-nav__item-list-item a {

@@ -54,7 +54,7 @@ const aboutNavs = [
          <span class="about-nav__item-title contact"
             ><ArrowDownFilled />contacts</span
          >
-         <ul class="about-nav__item-lists">
+         <ul class="about-nav__item-lists contact">
             <li class="about-nav__item-list-item">
                <NuxtLink>
                   <RiMailAddFill class="icon" />skye6ix@gmail.com</NuxtLink
