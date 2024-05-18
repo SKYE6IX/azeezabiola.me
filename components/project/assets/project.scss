@@ -69,6 +69,9 @@
          rotate: -90deg;
       }
    }
+   .project__main {
+      flex-grow: 0;
+   }
    .project__main-header {
       span {
          display: none;
@@ -78,7 +81,7 @@
       }
    }
    .project__main-content {
-      overflow: hidden;
-      width: 100%;
+      height: auto;
+      overflow-y: unset;
    }
 }
