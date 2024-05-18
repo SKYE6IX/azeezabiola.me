@@ -13,6 +13,7 @@ $white-color: rgba(255, 255, 255, 1);
 
 // FONTS
 $font-fira: var(--font-fira);
+$font-lato: var(--font-lato);
 
 // BREAKING POINT MIXIN
 @mixin media-query($type, $value) {

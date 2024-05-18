@@ -144,17 +144,17 @@
       transition: all 0.3s ease-in;
    }
    .header__navigation {
-      top: 52px;
+      top: 56px;
       left: 0px;
       right: 0px;
       bottom: 0px;
-      height: calc(100% - 52px);
+      height: calc(100% - 56px);
       position: absolute;
       display: flex;
       flex-direction: column;
       background: $primary-black-gaze;
       z-index: 10;
-      transition: all 0.3s linear;
+      transition: transform 0.4s linear;
       & .footer {
          display: flex;
       }

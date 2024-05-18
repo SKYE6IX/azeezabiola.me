@@ -26,11 +26,11 @@
 }
 .home-block__hero-content::before {
    left: -10px;
-   background: linear-gradient(90deg, #011627 30%, rgba(1, 22, 39, 0) 100%);
+   background: linear-gradient(90deg, #011627, 80%, rgba(1, 22, 39, 0) 100%);
 }
 .home-block__hero-content::after {
    right: -10px;
-   background: linear-gradient(-90deg, #011627 30%, rgba(1, 22, 39, 0) 100%);
+   background: linear-gradient(270deg, #011627, 80%, rgba(1, 22, 39, 0) 100%);
    filter: blur(5px);
 }
 .home-block__text-container {
@@ -62,14 +62,17 @@
 }
 .sub-text-item {
    font-size: 1rem;
-   font-weight: 400;
+   font-weight: 500;
    font-style: normal;
    line-height: normal;
    color: $secondary-grey-color;
    word-spacing: -2.5px;
    margin-bottom: 5px;
+   display: flex;
+   gap: 8px;
 }
 .sub-text-item.link {
+   display: block;
    font-weight: 500;
    color: $secondary-blue-color;
    span {
@@ -133,9 +136,8 @@
    }
    .title-name {
       font-size: 2.625rem;
-      font-weight: 500;
       line-height: 59.9px;
-      word-spacing: -15px;
+      word-spacing: -17px;
    }
    .title-job {
       font-size: 1.5rem;

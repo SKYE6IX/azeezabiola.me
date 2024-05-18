@@ -27,7 +27,8 @@ export default defineNuxtConfig({
    modules: ["@nuxtjs/google-fonts", "@nuxt/image", "@nuxt/content"],
    googleFonts: {
       families: {
-         "Fira Code": [300, 400, 500, 600, 700]
+         "Fira Code": [300, 400, 500, 600, 700],
+         Lato: [100, 300, 400, 700]
       },
       display: "swap",
       subsets: "latin",

@@ -32,6 +32,7 @@
 
 <style scoped lang="scss">
 @mixin text-style($color, $weight) {
+   font-family: $font-lato;
    font-weight: $weight;
    font-style: normal;
    line-height: normal;
@@ -44,11 +45,10 @@
 .skill__title {
    font-size: 1.375rem;
    text-transform: uppercase;
-   @include text-style($white-color, 600);
+   @include text-style($white-color, 700);
 }
 .skill__texts {
    font-size: 1.0625rem;
-   word-spacing: -6.5px;
    @include text-style($secondary-grey-color, 500);
 }
 </style>

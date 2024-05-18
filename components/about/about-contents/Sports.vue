@@ -99,4 +99,14 @@ onUnmounted(() => {
       border-radius: inherit;
    }
 }
+@include media-query("max-width", "540px") {
+   .sport-block__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+   }
+   .sport-block__media-wrapper {
+      width: 100%;
+   }
+}
 </style>

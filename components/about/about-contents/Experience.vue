@@ -49,7 +49,7 @@
    </div>
    <div class="experience">
       <h3 class="experience__title">Computer Technical Specialist: Omatek</h3>
-      <h4 class="experience__country">Lagos,Nigeria</h4>
+      <h4 class="experience__country">Lagos, Nigeria</h4>
       <span class="experience__year">2013-2018</span>
       <div class="experience__list-container">
          <div class="experience__item">
@@ -80,6 +80,7 @@
 
 <style scoped lang="scss">
 @mixin text-style($color, $weight) {
+   font-family: $font-lato;
    font-weight: $weight;
    font-style: normal;
    line-height: normal;
@@ -90,12 +91,11 @@
 }
 .experience__title {
    font-size: 1.6875rem;
-   word-spacing: -10px;
-   @include text-style($white-color, 600);
+   @include text-style($white-color, 700);
 }
 .experience__country {
    font-size: 1.4375rem;
-   @include text-style($secondary-grey-color, 400);
+   @include text-style($secondary-grey-color, 500);
 }
 .experience__year {
    font-size: 1.1875rem;
@@ -113,20 +113,18 @@
    color: $secondary-grey-color;
 }
 .experience__item-text {
+   font-family: $font-lato;
    font-size: 1.125rem;
-   font-weight: 450;
+   font-weight: 500;
    font-style: normal;
    line-height: 27px;
    color: $secondary-grey-color;
-   word-spacing: -5.5px;
 }
 
 @include media-query("max-width", "540px") {
    .experience__item-text {
       font-size: 1rem;
-      font-weight: 600;
       line-height: 24px;
-      word-spacing: -5.5px;
    }
 }
 </style>

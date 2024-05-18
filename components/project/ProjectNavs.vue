@@ -12,40 +12,40 @@ defineProps<Props>();
 </script>
 
 <template>
-   <div class="project-navs" :class="{ open: isNavOpen, closed: !isNavOpen }">
-      <div class="project-navs__item">
+   <ul class="project-navs" :class="{ open: isNavOpen, closed: !isNavOpen }">
+      <li class="project-navs__item">
          <input type="checkbox" id="next" value="next" v-model="model" />
          <label for="next"><NextJsIcon /> Next</label>
-      </div>
-      <div class="project-navs__item">
+      </li>
+      <li class="project-navs__item">
          <input type="checkbox" id="react" value="react" v-model="model" />
          <label for="react"><RiReactjsFill /> React</label>
-      </div>
-      <div class="project-navs__item">
+      </li>
+      <li class="project-navs__item">
          <input type="checkbox" id="nuxt" value="nuxt" v-model="model" />
          <label for="nuxt"><NuxtIcon /> Nuxt</label>
-      </div>
-      <div class="project-navs__item">
+      </li>
+      <li class="project-navs__item">
          <input type="checkbox" id="vue" value="vue" v-model="model" />
          <label for="vue"><RiVuejsFill /> Vue</label>
-      </div>
-      <div class="project-navs__item">
+      </li>
+      <li class="project-navs__item">
          <input type="checkbox" id="html" value="html" v-model="model" />
          <label for="html"><RiHtml5Fill /> HTML</label>
-      </div>
-      <div class="project-navs__item">
+      </li>
+      <li class="project-navs__item">
          <input type="checkbox" id="css" value="css" v-model="model" />
          <label for="css"><RiCss3Fill /> CSS</label>
-      </div>
-      <div class="project-navs__item">
+      </li>
+      <li class="project-navs__item">
          <input type="checkbox" id="framer" value="framer" v-model="model" />
          <label for="framer"><FramerIcon /> Framer</label>
-      </div>
-      <div class="project-navs__item">
+      </li>
+      <li class="project-navs__item">
          <input type="checkbox" id="mui" value="mui" v-model="model" />
          <label for="mui"><MuiIcon /> MUI</label>
-      </div>
-      <div class="project-navs__item">
+      </li>
+      <li class="project-navs__item">
          <input
             type="checkbox"
             id="bootstrap"
@@ -53,8 +53,8 @@ defineProps<Props>();
             v-model="model"
          />
          <label for="bootstrap"><RiBootstrapFill /> Bootstrap</label>
-      </div>
-   </div>
+      </li>
+   </ul>
 </template>
 
 <style scoped lang="scss">
@@ -62,6 +62,8 @@ defineProps<Props>();
    display: flex;
    flex-direction: column;
    gap: 18px;
+   padding: 0px;
+   list-style: none;
    padding-top: 18px;
 }
 .project-navs__item {
@@ -111,16 +113,17 @@ defineProps<Props>();
 }
 @include media-query("max-width", "540px") {
    .project-navs {
+      width: 100%;
+      height: 0px;
+      opacity: 0;
       padding-top: 15px;
       transition: all 0.3s linear;
+      pointer-events: none;
    }
    .project-navs.open {
-      height: 380px;
-   }
-   .project-navs.closed {
-      height: 0px;
-      padding: 0px;
-      opacity: 0;
+      height: 375px;
+      opacity: 1;
+      pointer-events: auto;
    }
 }
 </style>
