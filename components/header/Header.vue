@@ -24,6 +24,12 @@ onMounted(() => {
    navRefs.value.forEach((el: any) => {
       navWidths.value.push(el.offsetWidth);
    });
+   const updateNavsWidth = () => {
+      navRefs.value.forEach((el: any) => {
+         navWidths.value.push(el.offsetWidth);
+      });
+   };
+   window.addEventListener("resize", updateNavsWidth);
 });
 </script>
 <template>
