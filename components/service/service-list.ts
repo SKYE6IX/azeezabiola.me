@@ -1,6 +1,6 @@
 export const serviceLists = [
    {
-      price: "from <span class='bold'>$250</span>",
+      price: "from <span class='bold'>$200</span>",
       title: "business card website",
       description:
          "A business card website is a simple little web resource consisting of a few blocks of information about a company, product, service or person.",
@@ -13,7 +13,7 @@ export const serviceLists = [
       ]
    },
    {
-      price: "from <span class='bold'>$500</span>",
+      price: "from <span class='bold'>$400</span>",
       title: "landing page",
       description:
          "A one-page website that focuses all the attention on a product or service and effectively presents their benefits to potential customers.",
@@ -27,11 +27,11 @@ export const serviceLists = [
       ]
    },
    {
-      price: "from <span class='bold'>$700</span>",
+      price: "from <span class='bold'>$600</span>",
       title: "multipage website",
       description:
          "Creating a site with a more complex structure: several pages that are combined menus or other blocks with links.",
-      duration: "10-14 days",
+      duration: "10-20 days",
       features: [
          "Unlimited pages",
          "1 year support",
@@ -45,7 +45,7 @@ export const serviceLists = [
       title: "online store",
       description:
          "Creating a website for selling products with a storefront, payment system, shopping cart and notification of the seller and buyer of the order.",
-      duration: "14-28 days",
+      duration: "15-35 days",
       features: [
          "Unlimited pages",
          "2 year support",

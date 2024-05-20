@@ -10,7 +10,8 @@
       <h5 class="skill__title">Frontend-Skills:</h5>
       <p class="skill__texts">
          HTML, CSS, JavaScript, Typescript, React.js, Next.js, Vue, Nuxt, Redux,
-         React Query, SASS, Component-based MUI, Styled Components, Framer.
+         React Query, SASS, Component-based MUI, Styled Components, Framer,
+         GSAP.
       </p>
    </div>
    <div class="skill">
@@ -22,11 +23,13 @@
    </div>
    <div class="skill">
       <h5 class="skill__title">Tools:</h5>
-      <p class="skill__texts">VsCode, Figma, Git, Git-Flow, Jest.</p>
+      <p class="skill__texts">
+         Zoom, Slack, VsCode, Figma, Git, Git-Flow, Jest.
+      </p>
    </div>
    <div class="skill">
       <h5 class="skill__title">Languages:</h5>
-      <p class="skill__texts">English (Native), Russian (Elementary)</p>
+      <p class="skill__texts">English (Native), Russian (pre-intermidiate).</p>
    </div>
 </template>
 
@@ -49,6 +52,7 @@
 }
 .skill__texts {
    font-size: 1.0625rem;
+   margin-top: 5px;
    @include text-style($secondary-grey-color, 500);
 }
 </style>

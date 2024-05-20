@@ -33,8 +33,5 @@ export default defineNuxtConfig({
       display: "swap",
       subsets: "latin",
       prefetch: true
-   },
-   content: {
-      watch: false
    }
 });

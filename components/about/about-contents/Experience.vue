@@ -1,7 +1,7 @@
 <template>
    <div class="experience">
       <h3 class="experience__title">Frontend Developer: TechNex Innovations</h3>
-      <h4 class="experience__country">Greece</h4>
+      <h4 class="experience__country">Greece(Remotely)</h4>
       <span class="experience__year">2020-2023</span>
       <div class="experience__list-container">
          <div class="experience__item">
@@ -18,15 +18,15 @@
             <span class="experience__item-bullet">&#x2022;</span>
             <p class="experience__item-text">
                Collaborated with a team of designers and backend developers to
-               create a cohesive user experience for a web application, leading
-               to a 40% increase in user engagement.
+               create a cohesive user experience for a web applications, leading
+               to a high increase in users engagement.
             </p>
          </div>
          <div class="experience__item">
             <span class="experience__item-bullet">&#x2022;</span>
             <p class="experience__item-text">
                Designed and developed a reusable component library for future
-               use, resulting in a 40% divreduction in development time for new
+               use, resulting in a lower reduction in development time for new
                projects.
             </p>
          </div>

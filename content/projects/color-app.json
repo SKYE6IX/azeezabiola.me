@@ -4,7 +4,7 @@
    "description": "Developed a web application using react and styled-component additionally with MUI component base.It helps users be able to make use of the provided color palette or create their own.",
    "links": {
       "live_link": "",
-      "git_hub_link": "https://github.com/SKYE6IX/ColorPicker'"
+      "git_hub_link": "https://github.com/SKYE6IX/ColorPicker"
    },
    "tags": ["react", "mui", "styled-component"],
    "image": "/project-images/react_color.png"

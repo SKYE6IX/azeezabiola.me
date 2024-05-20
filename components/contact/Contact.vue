@@ -46,10 +46,14 @@ const setActiveTab = (tab: string) => {
          >
             <ul class="contact__aside-contacts">
                <li class="contact__aside-contacts-item">
-                  <NuxtLink><RiMailAddFill /> skye6ix@gmail.com</NuxtLink>
+                  <NuxtLink href="mailto:skye6ix@gmail.com"
+                     ><RiMailAddFill /> skye6ix@gmail.com</NuxtLink
+                  >
                </li>
                <li class="contact__aside-contacts-item">
-                  <NuxtLink><RiPhoneFill /> +79774604073</NuxtLink>
+                  <NuxtLink href="tel:+79774604073"
+                     ><RiPhoneFill /> +79774604073</NuxtLink
+                  >
                </li>
             </ul>
          </div>
@@ -65,13 +69,19 @@ const setActiveTab = (tab: string) => {
          >
             <ul class="contact__aside-links">
                <li class="contact__aside-links-item">
-                  <NuxtLink><RiExternalLinkFill /> Twitter</NuxtLink>
+                  <NuxtLink href="https://twitter.com/skye_6ix"
+                     ><RiExternalLinkFill /> Twitter</NuxtLink
+                  >
                </li>
                <li class="contact__aside-links-item">
-                  <NuxtLink><RiExternalLinkFill /> Instagram</NuxtLink>
+                  <NuxtLink href="https://t.me/Skye6ix"
+                     ><RiExternalLinkFill /> Telegram</NuxtLink
+                  >
                </li>
                <li class="contact__aside-links-item">
-                  <NuxtLink><RiExternalLinkFill /> LinkedIn</NuxtLink>
+                  <NuxtLink href="https://www.linkedin.com/in/azeezabiola/"
+                     ><RiExternalLinkFill /> LinkedIn</NuxtLink
+                  >
                </li>
             </ul>
          </div>

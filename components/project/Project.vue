@@ -65,7 +65,7 @@ const setIsNavOpen = () => {
             :class="{ open: isNavOpen }"
             @click="setIsNavOpen"
          >
-            <ArrowDownFilled /> projects
+            <ArrowDownFilled /> filter
          </h5>
          <ProjectNavs v-model="queryKeys" :is-nav-open="isNavOpen" />
       </aside>

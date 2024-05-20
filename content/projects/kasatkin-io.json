@@ -1,0 +1,10 @@
+{
+   "id": 7,
+   "title": "Kasatkin",
+   "description": "Kasatkin is an outsourcing company that develop product for other companies. This landing page showcase their previous projects and what their company offers. Seamless animation with framer motion and built with Next.js and sass.",
+   "links": {
+      "live_link": "https://kasatkin.io"
+   },
+   "tags": ["next", "react", "sass", "framer"],
+   "image": "/project-images/kasatkin.png"
+}

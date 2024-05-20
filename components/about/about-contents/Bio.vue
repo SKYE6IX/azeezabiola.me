@@ -1,14 +1,20 @@
 <template>
    <p class="bio">
-      Highly skilled Frontend Developer with 3+ years of experience in
-      developing and implementing frontend architectures that have resulted in
-      significant increases in page load speed and user engagement. Proficient
-      in collaborating with backend teams to integrate
-      <b>user-facing</b> elements with <b>server-side</b> logic, implementing
-      automated <b>testing</b> platforms, and <b>optimising</b> components for
-      maximum performance. Adept at identifying and resolving performance and
-      scalability issues, staying up-to-date with emerging technologies and
-      frameworks, and reducing development time for new projects.
+      Skilled Frontend Developer with over 3years experience of enjoying to
+      build user-friendly web applications and implementing
+      <b>frontend architecture</b>. Part of team that developed high terrific
+      web applications like <b>e-commerce</b>, <b>Landing pages</b>, etc for
+      other companies which helps their products do well online. I’m proficient
+      in <b>collaborating</b> with designers and also backend team to
+      <b>integrate</b>
+      frontend logic with server-side logic. My excellent communication skills
+      and adaptability with my team increase productivity and seamless work
+      environment. I take pride in testing new product, optimizing components
+      for maximum performance to make sure all new features are well functional
+      as they should. I’m adept at identifying and resolving performance and
+      scalability issues, staying up to date with emerging technologies and
+      learning new skills. I am eager to bring my skills and experience to an
+      innovative and dynamic team where I can continue to learn and grow.
    </p>
 </template>
 <style scoped lang="scss">
