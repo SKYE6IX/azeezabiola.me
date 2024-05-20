@@ -7,10 +7,18 @@ import {
 } from "@remixicon/vue";
 
 const footerLinks = [
-   { name: "twitter", icon: RiTwitterFill, href: "#" },
-   { name: "linkedin", icon: RiLinkedinBoxFill, href: "#" },
-   { name: "telegram", icon: RiTelegramFill, href: "#" },
-   { name: "github", icon: RiGithubFill, href: "#" }
+   {
+      name: "twitter",
+      icon: RiTwitterFill,
+      href: "https://twitter.com/skye_6ix"
+   },
+   {
+      name: "linkedin",
+      icon: RiLinkedinBoxFill,
+      href: "https://www.linkedin.com/in/azeezabiola/"
+   },
+   { name: "telegram", icon: RiTelegramFill, href: "https://t.me/Skye6ix" },
+   { name: "github", icon: RiGithubFill, href: "https://github.com/SKYE6IX" }
 ];
 </script>
 
