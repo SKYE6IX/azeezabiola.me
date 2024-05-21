@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import gsap from "gsap";
 const navRefs = ref<any>([]);
 const navWidths = useState<any>(() => []);
 const navItemVariables = computed(() => ({
@@ -21,8 +20,6 @@ const navs = [
 const setIsOpen = () => {
    isOpen.value = !isOpen.value;
 };
-let ctx: gsap.Context;
-let tl: gsap.core.Timeline;
 onMounted(() => {
    navRefs.value.forEach((el: any) => {
       navWidths.value.push(el.offsetWidth);
@@ -37,7 +34,9 @@ onMounted(() => {
 </script>
 <template>
    <header class="header">
-      <h5 class="header__title">azeez-abiola</h5>
+      <div class="header__title">
+         <SiteTitle />
+      </div>
       <div
          class="header__menu-bar"
          :class="{ open: isOpen, close: !isOpen }"

@@ -8,15 +8,9 @@
 .header__title {
    width: 225px;
    height: 100%;
-   display: inline-flex;
+   display: flex;
    justify-content: center;
    align-items: center;
-   font-family: $font-fira;
-   font-size: 1.2rem;
-   font-weight: 600;
-   font-style: normal;
-   line-height: normal;
-   color: $secondary-grey-color;
    border-right: 2px solid $line-color;
 }
 .header__navigation {
@@ -105,14 +99,14 @@
       flex-direction: column;
       justify-content: space-between;
       width: 18px;
-      height: 16px;
+      height: 36px;
       cursor: pointer;
       margin-left: auto;
       position: relative;
    }
    .header__menu-bar.open .bar {
       position: absolute;
-      bottom: 0px;
+      top: 60%;
       &:nth-child(1) {
          transform: translateY(-6px) rotate(45deg);
       }
@@ -125,7 +119,8 @@
    }
    .header__menu-bar.close .bar {
       position: absolute;
-      bottom: 0px;
+      top: 50%;
+
       &:nth-child(1) {
          transform: translateY(-6px) rotate(0deg);
       }
