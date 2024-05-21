@@ -1,5 +1,5 @@
 {
-   "id": 5,
+   "id": 6,
    "title": "Skye Camp",
    "description": "This is a camp web application where users can find available camps or create a new camp for other users to see. I built this app with NodeJS, used ExpressJS for the server-side and implemented API usage using RestfulAPI. In addition, I made use of the no-relational database MongoDB for data storage. The app has the ability to protect itself from unknown HTTP requests and unknown queries to the database. Using EJS template to render the frontend with bootstrap and additional custom CSS.",
    "links": {

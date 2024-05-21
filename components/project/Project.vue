@@ -18,20 +18,32 @@ const queryKeys = useState("query-key", () => []);
 const queryTexts = useState("query-text", () => "projects");
 const filteredProjects = useState<ProjectData[] | null>("filterdProject");
 const isNavOpen = useState(() => false);
-const { data } = await useAsyncData("project", () =>
-   queryContent<ProjectData>("projects").find()
+const { data } = await useAsyncData(
+   "projects",
+   async () =>
+      await queryContent<ProjectData>("projects").sort({ id: 1 }).find(),
+   {
+      dedupe: "defer"
+   }
 );
+
 filteredProjects.value = data.value;
 watch(queryKeys, async (newQueries) => {
-   const { data } = await useAsyncData("projects", async () => {
-      const query = newQueries.length
-         ? { tags: { $contains: newQueries } }
-         : {};
-      const filterData = await queryContent<ProjectData>("projects")
-         .where(query)
-         .find();
-      return filterData;
-   });
+   const { data } = await useAsyncData(
+      "projects",
+      async () => {
+         const query = newQueries.length
+            ? { tags: { $contains: newQueries } }
+            : {};
+         const filterData = await queryContent<ProjectData>("projects")
+            .where(query)
+            .find();
+         return filterData;
+      },
+      {
+         dedupe: "defer"
+      }
+   );
    filteredProjects.value = data.value;
    if (newQueries.length) {
       queryTexts.value = newQueries.toString();
