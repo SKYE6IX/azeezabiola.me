@@ -9,7 +9,7 @@ defineProps<Props>();
 <template>
    <li>
       <NuxtLink :to="href" target="_blank">
-         <iconComponent class="social-icon" />
+         <component :is="iconComponent" class="social-icon" />
       </NuxtLink>
    </li>
 </template>
