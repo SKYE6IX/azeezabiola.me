@@ -1,20 +1,36 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const formInputs = ref({
+   name: "",
+   email: "",
+   message: ""
+});
 
+async function sumbit() {
+   const { data, pending, error } = await useFetch("/api/email", {
+      method: "post",
+      body: {
+         name: formInputs.value.name,
+         email: formInputs.value.email,
+         message: formInputs.value.message
+      }
+   });
+}
+</script>
 <template>
-   <form class="contact-form">
+   <form class="contact-form" data-static-form-name="contact">
       <div class="contact-form__input">
          <label for="name">_name:</label>
-         <input type="text" name="name" />
+         <input type="text" name="name" v-model="formInputs.name" />
       </div>
       <div class="contact-form__input">
          <label for="email">_email:</label>
-         <input type="email" name="email" />
+         <input type="email" name="email" v-model="formInputs.email" />
       </div>
       <div class="contact-form__input">
          <label for="message">_message:</label>
-         <textarea name="message"></textarea>
+         <textarea name="message" v-model="formInputs.message"></textarea>
       </div>
-      <button class="contact-form__button">submit-message</button>
+      <button class="contact-form__button" type="submit">submit-message</button>
    </form>
 </template>
 

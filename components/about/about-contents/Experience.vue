@@ -1,7 +1,7 @@
 <template>
    <div class="experience">
       <h3 class="experience__title">Frontend Developer: TechNex Innovations</h3>
-      <h4 class="experience__country">Greece(Remotely)</h4>
+      <h4 class="experience__country">Greece(remotely)</h4>
       <span class="experience__year">2020-2023</span>
       <div class="experience__list-container">
          <div class="experience__item">
