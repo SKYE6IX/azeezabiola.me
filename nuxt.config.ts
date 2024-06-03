@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+   runtimeConfig: {
+      public: {
+         mailApi: process.env.NUXT_MAIL_API
+      }
+   },
    components: [
       {
          path: "~/components",

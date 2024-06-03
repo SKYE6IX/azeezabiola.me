@@ -1,23 +1,55 @@
 <script setup lang="ts">
+const config = useRuntimeConfig();
+interface Response {
+   message: string;
+   status: "success" | "rejected";
+}
+const initialInputState = {
+   name: "",
+   email: "",
+   message: ""
+};
 const formInputs = ref({
    name: "",
    email: "",
    message: ""
 });
-
-async function sumbit() {
-   const { data, pending, error } = await useFetch("/api/email", {
-      method: "post",
+const isSendingMessage = ref(false);
+const pending = ref(false);
+const showMessageState = ref<"open" | "close" | null>(null);
+const responseMessage = ref("");
+function sumbit() {
+   isSendingMessage.value = true;
+   pending.value = true;
+   $fetch<Response>(config.public.mailApi, {
+      method: "POST",
       body: {
          name: formInputs.value.name,
          email: formInputs.value.email,
          message: formInputs.value.message
       }
-   });
+   })
+      .then((res) => {
+         pending.value = false;
+         showMessageState.value = "open";
+         formInputs.value = initialInputState;
+         if (res.status === "success") {
+            responseMessage.value = res.message;
+         } else if (res.status === "rejected") {
+            responseMessage.value = res.message;
+         }
+         setTimeout(() => {
+            showMessageState.value = "close";
+            isSendingMessage.value = false;
+         }, 3000);
+      })
+      .catch((err) => {
+         console.log(err);
+      });
 }
 </script>
 <template>
-   <form class="contact-form" data-static-form-name="contact">
+   <form class="contact-form" @submit.prevent="sumbit">
       <div class="contact-form__input">
          <label for="name">_name:</label>
          <input type="text" name="name" v-model="formInputs.name" />
@@ -30,80 +62,43 @@ async function sumbit() {
          <label for="message">_message:</label>
          <textarea name="message" v-model="formInputs.message"></textarea>
       </div>
-      <button class="contact-form__button" type="submit">submit-message</button>
+      <div class="contact-form__action">
+         <button
+            class="contact-form__button action-child"
+            :class="{
+               active: isSendingMessage
+            }"
+            type="submit"
+         >
+            submit-message
+         </button>
+         <p
+            class="contact-form__pending action-child"
+            :class="{
+               active: pending
+            }"
+         >
+            <span class="pending-letter">s</span>
+            <span class="pending-letter">e</span>
+            <span class="pending-letter">n</span>
+            <span class="pending-letter">d</span>
+            <span class="pending-letter">i</span>
+            <span class="pending-letter">n</span>
+            <span class="pending-letter">g</span>
+         </p>
+         <p
+            class="contact-form__message action-child"
+            :class="{
+               open: showMessageState === 'open',
+               close: showMessageState === 'close'
+            }"
+         >
+            {{ responseMessage }}
+         </p>
+      </div>
    </form>
 </template>
 
 <style scoped lang="scss">
-%text-style {
-   font-family: $font-fira;
-   font-size: 1rem;
-   font-weight: 450;
-   font-style: normal;
-   line-height: normal;
-   color: $secondary-grey-color;
-}
-.contact-form__input {
-   margin-bottom: 24px;
-   width: 370px;
-   display: flex;
-   flex-direction: column;
-   gap: 10px;
-   input,
-   textarea {
-      padding: 10px 0px 10px 15px;
-      background-color: rgba(1, 18, 33, 1);
-      border: 1px solid #1e2d3d;
-      border-radius: 8px;
-      caret-color: $secondary-grey-color;
-      @extend %text-style;
-      transition: all 0.3s ease-in;
-      &:focus {
-         border: 1px solid #607b96;
-         box-shadow: 0px 0px 0px 2px rgba(96, 123, 150, 0.3);
-         outline: none;
-      }
-   }
-   label {
-      @extend %text-style;
-   }
-   textarea {
-      height: 145px;
-      resize: none;
-   }
-}
-.contact-form__button {
-   padding: 10px 15px;
-   border: none;
-   border-radius: 8px;
-   outline: none;
-   background: rgba(28, 43, 58, 1);
-   font-family: $font-fira;
-   font-size: 0.875rem;
-   font-weight: 450;
-   font-style: normal;
-   line-height: normal;
-   color: $white-color;
-   cursor: pointer;
-   transition: all 0.3s ease-in;
-   &:hover {
-      background: rgba(38, 59, 80, 1);
-   }
-}
-@include media-query("max-width", "540px") {
-   .contact-form {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-   }
-   .contact-form__input {
-      width: calc(100% - 30px);
-      margin-bottom: 18px;
-   }
-   .contact-form__button {
-      align-self: flex-start;
-      margin-left: 27px;
-   }
-}
+@import "./asset/form.scss";
 </style>
