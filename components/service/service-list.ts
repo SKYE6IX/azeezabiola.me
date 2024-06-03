@@ -7,7 +7,7 @@ export const serviceLists = [
       duration: "3-5 days",
       features: [
          "Up to 3 blocks",
-         "6 months support",
+         "3 months support",
          "Responsive to only mobile",
          "Basic UI/UX enhancement"
       ]
@@ -20,7 +20,7 @@ export const serviceLists = [
       duration: "5-7 days",
       features: [
          "Unlimited blocks",
-         "1 year support",
+         "6 months support",
          "Responsive to mulitple device",
          "Interactive element and animations",
          "Cross-browser compability"
@@ -48,7 +48,7 @@ export const serviceLists = [
       duration: "15-35 days",
       features: [
          "Unlimited pages",
-         "2 year support",
+         "1 year support",
          "Responsive to mulitple device",
          "Interactive element and animations",
          "Cross-browser compability",

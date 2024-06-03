@@ -56,12 +56,14 @@ const aboutNavs = [
          >
          <ul class="about-nav__item-lists contact">
             <li class="about-nav__item-list-item">
-               <NuxtLink>
+               <NuxtLink href="mailto:skye6ix@gmail.com">
                   <RiMailAddFill class="icon" />skye6ix@gmail.com</NuxtLink
                >
             </li>
             <li class="about-nav__item-list-item">
-               <NuxtLink> <RiPhoneFill class="icon" />+79774604073</NuxtLink>
+               <NuxtLink href="tel:+79774604073">
+                  <RiPhoneFill class="icon" />+79774604073</NuxtLink
+               >
             </li>
          </ul>
       </div>
