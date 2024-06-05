@@ -81,7 +81,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .marquee-wrapper {
    overflow-x: hidden;
-   width: 620px;
+   width: 100%;
    height: 120px;
    max-width: 100%;
    position: relative;

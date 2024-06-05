@@ -9,6 +9,7 @@
    position: relative;
 }
 .home-block__hero-content {
+   max-width: 100%;
    position: relative;
    display: flex;
    flex-direction: column;
@@ -71,10 +72,10 @@
    margin-top: 40px;
 }
 .sub-text-item {
-   font-size: 1rem;
-   font-weight: 500;
+   font-size: 1.125rem;
+   font-weight: 600;
    font-style: normal;
-   line-height: normal;
+   line-height: 27px;
    color: $secondary-grey-color;
    word-spacing: -2.5px;
    margin-bottom: 5px;
@@ -100,7 +101,7 @@
 }
 .home-block__game-container {
    position: relative;
-   z-index: 5;
+   z-index: 10;
 }
 .blue-effect,
 .green-effect {
@@ -111,11 +112,23 @@
    filter: blur(87px);
    z-index: 1;
 }
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+   .blue-effect,
+   .green-effect {
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+   }
+}
 .green-effect {
    background: #43d9ad;
    transform: rotate(-94.305deg);
    top: -50px;
    right: 250px;
+   z-index: 5;
 }
 .blue-effect {
    background: #4d5bce;
@@ -152,6 +165,12 @@
    .title-job {
       font-size: 1.5rem;
       line-height: 31.1px;
+   }
+   .sub-text-item {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 20.1px;
+      word-spacing: -5.5px;
    }
    .home-block__game-container {
       display: none;
