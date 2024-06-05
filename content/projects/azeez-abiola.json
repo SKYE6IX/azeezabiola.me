@@ -1,0 +1,10 @@
+{
+   "id": 5,
+   "title": "Azeez Abiola",
+   "description": "This is my portfolio page that you're currently viewing. On this page you can find everything about me and my experience, get in contact with me and services I provides. Built with Nuxt and Vue JS, used gsap for smooth animations.",
+   "links": {
+      "git_hub_link": "https://github.com/SKYE6IX/azeezabiola.me"
+   },
+   "tags": ["nuxt", "vue", "gsap", "scss"],
+   "image": "/project-images/azeez_abiola.png"
+}

@@ -37,6 +37,7 @@ watch(queryKeys, async (newQueries) => {
             : {};
          const filterData = await queryContent<ProjectData>("projects")
             .where(query)
+            .sort({ id: 1 })
             .find();
          return filterData;
       },
