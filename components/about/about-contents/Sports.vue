@@ -11,7 +11,6 @@ const footballContent = [
 ];
 const skateContent = [
    { name: "skate1", scr: "/sport-media/skate1.jpg" },
-   { name: "skate2", scr: "/sport-media/skate2.jpg" },
    { name: "skate3", scr: "/sport-media/skate3.jpg" },
    { name: "skate4", scr: "/sport-media/skate4.jpg" }
 ];
