@@ -20,7 +20,6 @@
       "eslint": "^8.56.0",
       "eslint-plugin-vue": "^9.19.2",
       "gsap": "^3.12.5",
-      "mailersend": "^2.2.0",
       "nuxt": "^3.9.0",
       "prettier": "3.1.1",
       "sass": "^1.77.2",

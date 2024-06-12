@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import constants from "./constants";
+
 // VARIBALES
 let snake: { x: number; y: number }[];
 let direction: {
@@ -11,15 +12,16 @@ let direction: {
    };
 };
 let targetCell: { x: number; y: number } | null;
+let boardContext: CanvasRenderingContext2D;
 const cellSize = 10;
 const boardSize = 25;
 const boardSizePx = cellSize * boardSize;
 
 const board = ref<HTMLCanvasElement | null>();
-let boardContext: CanvasRenderingContext2D;
-const scores = useState("score", () => 0);
-const isPlaying = useState("is-palying", () => false);
-const speed = useState("speed", () => 10);
+const scores = ref(0);
+const isPlaying = ref(false);
+const isGameOver = ref(false);
+const speed = ref(10);
 onMounted(() => {
    if (board.value != null) {
       boardContext = board.value.getContext("2d")!;
@@ -29,7 +31,9 @@ onMounted(() => {
 onUnmounted(() => {
    window.removeEventListener("keydown", onKeyPress);
 });
+
 callOnce("call-once", () => resetSnake());
+
 watch(isPlaying, (value) => {
    clear();
    if (value) {
@@ -38,14 +42,16 @@ watch(isPlaying, (value) => {
    }
 });
 const startGame = () => {
+   isGameOver.value = false;
    isPlaying.value = true;
 };
 const stopGame = () => {
    isPlaying.value = false;
 };
-// const addScores = (score: number) => {
-//    scores.value += score;
-// };
+
+const addScores = (score: number) => {
+   scores.value = score;
+};
 
 // GAME ACTIONS
 function onKeyPress(event: Event) {
@@ -60,6 +66,7 @@ function onKeyPress(event: Event) {
 function getMiddleCell() {
    return Math.round(boardSize / 2);
 }
+
 function resetSnake() {
    snake = [
       {
@@ -71,6 +78,7 @@ function resetSnake() {
    direction = constants[randomDirectionIndex];
    targetCell = null;
 }
+
 function clear() {
    boardContext.clearRect(0, 0, boardSizePx, boardSizePx * 1.6);
 }
@@ -83,6 +91,7 @@ function getRandomCell() {
 function amountCellsInSnake(cell: { x: number; y: number }) {
    return snake.filter(({ x, y }) => x === cell.x && y === cell.y).length;
 }
+
 function setTargetCell() {
    if (!targetCell) {
       let newTargetCell = getRandomCell();
@@ -104,9 +113,11 @@ function setTargetCell() {
    boardContext.fill();
    boardContext.closePath();
 }
+
 function iScellOutOfBound({ x, y }: { x: number; y: number }) {
    return x < 0 || y < 0 || x >= boardSize || y >= boardSize * 1.6;
 }
+
 function isTargetNewHead() {
    if (targetCell) {
       return (
@@ -115,14 +126,17 @@ function isTargetNewHead() {
       );
    }
 }
+
 function drawCell({ x, y }: { x: number; y: number }) {
    boardContext.rect(x * cellSize, y * cellSize, cellSize, cellSize);
    boardContext.fillStyle = "#43D9AD";
    boardContext.fill();
 }
+
 function getMoveDelay() {
    return (2 / Number(speed.value)) * 1000;
 }
+
 function move() {
    if (!isPlaying.value) {
       return;
@@ -136,8 +150,10 @@ function move() {
    };
    if (iScellOutOfBound(newHeadCell) || amountCellsInSnake(snake[0]) > 1) {
       stopGame();
-      alert("Game over");
+      // alert("Game over");
    }
+   let scores = snake.length === 1 ? 0 : snake.length * 10;
+   addScores(scores);
    if (isTargetNewHead() && targetCell) {
       snake.unshift(targetCell);
       targetCell = null;
@@ -171,9 +187,17 @@ function move() {
                <span>// use keyboard</span>
                <span>// to play</span>
             </p>
+            <div class="game__info-header-icons">
+               <KeyUp />
+               <KeyLeft />
+               <KeyDown />
+               <KeyRight />
+            </div>
          </div>
          <div class="game__info-scores">
-            <p>_scores: <span>50</span></p>
+            <p>
+               _scores: <span> {{ scores }}</span>
+            </p>
          </div>
          <div class="game__speed-set">
             <input
@@ -201,7 +225,10 @@ function move() {
             />
             <label for="x3">x3</label>
          </div>
-         <button @click="stopGame" class="game__button-stop">stop-game</button>
+         <span class="game__set-speed" v-show="!isPlaying">set-game-speed</span>
+         <button @click="stopGame" class="game__button-stop" v-show="isPlaying">
+            stop-game
+         </button>
       </div>
    </div>
 </template>

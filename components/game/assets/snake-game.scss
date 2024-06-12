@@ -48,6 +48,16 @@
       color: $white-color;
    }
 }
+.game__info-header-icons {
+   margin-top: 15px;
+   display: flex;
+   flex-wrap: wrap;
+   svg {
+      &:nth-child(1) {
+         flex: 0 1 100%;
+      }
+   }
+}
 .game__info-scores {
    margin-top: 30px;
    p {
@@ -72,17 +82,9 @@
       background-color: rgba(255, 172, 107, 1);
    }
 }
-.game__button-stop {
-   margin-top: 20px;
-   @extend %share-button-styles;
-   background-color: rgba(28, 43, 58, 1);
-   color: $white-color;
-   &:hover {
-      background-color: rgba(38, 59, 80, 1);
-   }
-}
 .game__speed-set {
    margin-top: 20px;
+   margin-bottom: 20px;
    padding: 10px;
    &:has(input:disabled) {
       input,
@@ -113,5 +115,24 @@
       color: $secondary-grey-color;
       margin-right: 5px;
       cursor: pointer;
+   }
+}
+.game__set-speed {
+   border-radius: 8px;
+   padding: 10px 14px;
+   font-family: $font-fira;
+   font-size: 0.875rem;
+   font-weight: 500;
+   line-height: 19px;
+   word-spacing: -5px;
+   background-color: rgba(28, 43, 58, 1);
+   color: $white-color;
+}
+.game__button-stop {
+   @extend %share-button-styles;
+   background-color: rgba(28, 43, 58, 1);
+   color: $white-color;
+   &:hover {
+      background-color: rgba(38, 59, 80, 1);
    }
 }
