@@ -35,6 +35,12 @@
       resize: none;
    }
 }
+.contact-form__input.error {
+   input,
+   textarea {
+      border: 1px solid #d64933;
+   }
+}
 .contact-form__action {
    display: flex;
    justify-content: center;
