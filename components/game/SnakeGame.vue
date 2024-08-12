@@ -1,46 +1,29 @@
 <script setup lang="ts">
 import SnakeGame from "./snake";
-
 type SnakeGameInstance = InstanceType<typeof SnakeGame>;
 
 const canvas = ref<HTMLCanvasElement | null>();
 const snakeGame = ref<SnakeGameInstance>();
-const isPlaying = ref(false);
+const gameSpeed = ref(10);
+
 onMounted(() => {
    if (canvas.value != null) {
       snakeGame.value = new SnakeGame(canvas.value);
    }
 });
-callOnce("call-once", () => snakeGame.value?.resetGame());
-watch(isPlaying, (value) => {
-   snakeGame.value?.clearBoard();
-   if (value) {
-      snakeGame.value?.resetGame();
-      snakeGame.value?.moveSnake();
+const handleSetGameSpeed = () => {
+   if (snakeGame.value) {
+      snakeGame.value.setGameSpeed = gameSpeed.value;
    }
-});
-const handleStartGame = () => {
-   isPlaying.value = true;
-   snakeGame.value?.startGame();
-};
-const handleStopGame = () => {
-   isPlaying.value = false;
-   snakeGame.value?.stopGame();
 };
 </script>
 <template>
    <div class="game-container">
-      <canvas
-         ref="canvas"
-         id="snake-canvas"
-         :width="snakeGame?.boardWidth"
-         :height="snakeGame?.boardWidth! * 1.6"
-      >
-      </canvas>
+      <canvas ref="canvas" id="snake-canvas"> </canvas>
       <button
-         @click="handleStartGame"
+         @click="snakeGame?.startGame()"
          class="game__button-start"
-         v-show="!isPlaying"
+         v-show="snakeGame?.getIsGameOver()"
       >
          start-game
       </button>
@@ -59,40 +42,45 @@ const handleStopGame = () => {
          </div>
          <div class="game__info-scores">
             <p>
-               <!-- _scores: <span> {{ scores }}</span> -->
+               _scores: <span> {{ snakeGame?.getGameScore() }}</span>
             </p>
          </div>
          <div class="game__speed-set">
-            <!-- <input
+            <input
                type="radio"
                value="10"
-               v-model="speed"
+               v-model="gameSpeed"
                id="x1"
-               :disabled="isPlaying"
-            /> -->
+               :disabled="!snakeGame?.getIsGameOver()"
+               @change="handleSetGameSpeed"
+            />
             <label for="x1">x1</label>
-            <!-- <input
+            <input
                type="radio"
                value="15"
-               v-model="speed"
+               v-model="gameSpeed"
                id="x2"
-               :disabled="isPlaying"
-            /> -->
+               :disabled="!snakeGame?.getIsGameOver()"
+               @change="handleSetGameSpeed"
+            />
             <label for="x2">x2</label>
-            <!-- <input
+            <input
                type="radio"
                value="20"
-               v-model="speed"
+               v-model="gameSpeed"
                id="x3"
-               :disabled="isPlaying"
-            /> -->
+               :disabled="!snakeGame?.getIsGameOver()"
+               @change="handleSetGameSpeed"
+            />
             <label for="x3">x3</label>
          </div>
-         <span class="game__set-speed" v-show="!isPlaying">set-game-speed</span>
+         <span class="game__set-speed" v-show="snakeGame?.getIsGameOver()"
+            >set-game-speed</span
+         >
          <button
-            @click="handleStopGame"
+            @click="snakeGame?.stopGame()"
             class="game__button-stop"
-            v-show="isPlaying"
+            v-show="!snakeGame?.getIsGameOver()"
          >
             stop-game
          </button>
