@@ -1,11 +1,13 @@
 <template>
    <p class="bio">
-      Skilled Frontend Developer with over 3years experience of enjoying to
-      build user-friendly web applications and implementing
+      Experienced problem solver with strong proficiency in
+      <b>JavaScript</b> and 3+ years of experience of enjoying to build
+      user-friendly web applications and implementing
       <b>frontend architecture</b>. Part of team that developed high terrific
-      web applications like <b>e-commerce</b>, <b>Landing pages</b>, etc for
-      other companies which helps their products do well online. I’m proficient
-      in <b>collaborating</b> with designers and also backend team to
+      web applications like <b>e-commerce</b>, <b>Landing pages</b> and so many
+      other products for other companies which helps their business do well
+      online. I’m proficient in <b>collaborating</b> with designers and also
+      backend team to
       <b>integrate</b>
       frontend logic with server-side logic. My excellent communication skills
       and adaptability with my team increase productivity and seamless work

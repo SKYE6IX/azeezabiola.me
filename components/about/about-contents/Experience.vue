@@ -1,33 +1,31 @@
 <template>
    <div class="experience">
       <h3 class="experience__title">Frontend Developer: TechNex Innovations</h3>
-      <h4 class="experience__country">Greece(remotely)</h4>
+      <h4 class="experience__country">Greece(remote)</h4>
       <span class="experience__year">2020-2023</span>
       <div class="experience__list-container">
          <div class="experience__item">
             <span class="experience__item-bullet">&#x2022;</span>
             <p class="experience__item-text">
-               Implemented and maintained frontend web applications, resulting
-               in a 20% reduction in page load speeds and conversion rates by
-               utilizing modern web technologies such as
-               <b>React</b>, <b>Next.JS </b>and <b>Typescript</b> with best
-               practices for user experience and accessibility.
+               Developed and maintained frontend web applications from scratch
+               utilizing modern web technologies such as <b>React.js</b>,
+               <b>Next.js</b> and <b>Typescripts</b> with best practices.
             </p>
          </div>
          <div class="experience__item">
             <span class="experience__item-bullet">&#x2022;</span>
             <p class="experience__item-text">
-               Collaborated with a team of designers and backend developers to
-               create a cohesive user experience for a web applications, leading
-               to a high increase in users engagement.
+               Collaborated with UI/UX designers, backend developer and project
+               manager to create a cohesive user experience for web
+               applications.
             </p>
          </div>
          <div class="experience__item">
             <span class="experience__item-bullet">&#x2022;</span>
             <p class="experience__item-text">
-               Designed and developed a reusable component library for future
-               use, resulting in a lower reduction in development time for new
-               projects.
+               Optimized web applications for maximum speed and scalability,
+               resulting in a 40% decrease in page load time and a 20% increase
+               in overall site traffic.
             </p>
          </div>
          <div class="experience__item">
@@ -43,6 +41,31 @@
             <p class="experience__item-text">
                Proficiently use <b>Git</b> and other version control systems to
                manage and track changes collaboratively.
+            </p>
+         </div>
+         <div class="experience__item">
+            <span class="experience__item-bullet">&#x2022;</span>
+            <p class="experience__item-text">
+               Participated in cross-team projects, technical events, and
+               research initiatives to develop innovative frontend solutions
+               that enhanced user experience and streamlined application
+               performance
+            </p>
+         </div>
+         <div class="experience__item">
+            <span class="experience__item-bullet">&#x2022;</span>
+            <p class="experience__item-text">
+               Demonstrated strong proficiency in JavaScript, including advanced
+               DOM manipulation and comprehensive understanding of the
+               JavaScript object model, to build dynamic, responsive web
+               applications.
+            </p>
+         </div>
+         <div class="experience__item">
+            <span class="experience__item-bullet">&#x2022;</span>
+            <p class="experience__item-text">
+               Implemented unit tests with Jest, resulting in a 30% reduction in
+               bug related delays and a 20% increase in overall code quality
             </p>
          </div>
       </div>
