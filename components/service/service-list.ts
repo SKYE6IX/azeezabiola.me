@@ -1,6 +1,6 @@
 export const serviceLists = [
    {
-      price: "from <span class='bold'>$200</span>",
+      price: "from <span class='bold'>$400</span>",
       title: "business card website",
       description:
          "A business card website is a simple little web resource consisting of a few blocks of information about a company, product, service or person.",
@@ -13,7 +13,7 @@ export const serviceLists = [
       ]
    },
    {
-      price: "from <span class='bold'>$400</span>",
+      price: "from <span class='bold'>$600</span>",
       title: "landing page",
       description:
          "A one-page website that focuses all the attention on a product or service and effectively presents their benefits to potential customers.",
@@ -27,7 +27,7 @@ export const serviceLists = [
       ]
    },
    {
-      price: "from <span class='bold'>$600</span>",
+      price: "from <span class='bold'>$800</span>",
       title: "multipage website",
       description:
          "Creating a site with a more complex structure: several pages that are combined menus or other blocks with links.",
@@ -41,7 +41,7 @@ export const serviceLists = [
       ]
    },
    {
-      price: "from <span class='bold'>$1000</span>",
+      price: "from <span class='bold'>$1500</span>",
       title: "online store",
       description:
          "Creating a website for selling products with a storefront, payment system, shopping cart and notification of the seller and buyer of the order.",
@@ -56,7 +56,7 @@ export const serviceLists = [
       ]
    },
    {
-      price: "<span class='bold'>$10</span>/hour",
+      price: "<span class='bold'>$40</span>/hour",
       title: "website modification",
       description:
          "Revision. A small change to the site. For example, edit the design, connect the payment system or adjust various forms.",
