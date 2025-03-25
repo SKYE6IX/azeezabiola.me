@@ -3,7 +3,7 @@
    "title": "Aplha Wallet",
    "description": "Dynamic landing page that introduce web 3 to users and also offer companies products. Seamless animations using framer motion and effortless language switch. Built with Next.js and styled-component.",
    "links": {
-      "live_link": "https://alpha-wallet.pages.dev/en",
+      "live_link": "https://alpha-dex.io",
       "git_hub_link": "https://github.com/SKYE6IX/Alpha-Wallet"
    },
    "tags": ["react", "next", "styled-component", "framer"],

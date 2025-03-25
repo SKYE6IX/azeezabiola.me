@@ -5,7 +5,7 @@
             <div class="home-block__title-wrapper">
                <h5 class="title-greeting">Hi! I'm</h5>
                <h3 class="title-name">Azeez Abiola</h3>
-               <h4 class="title-job">> Frontend developer</h4>
+               <h4 class="title-job">> Frontend Developer</h4>
             </div>
             <div class="home-block__sub-texts-container">
                <p class="sub-text-item">
@@ -20,10 +20,10 @@
                   <span> // </span> You can checkout my codes on Github.
                </p>
                <p class="sub-text-item link">
-                  const <span>githubLink</span> <span>=</span>
                   <NuxtLink href="https://github.com/SKYE6IX" target="_">
-                     “https://github.com/SKYE6IX”;</NuxtLink
-                  >
+                     const <span>githubLink</span>
+                     <span>=</span> “https://github.com/SKYE6IX”;
+                  </NuxtLink>
                </p>
             </div>
          </div>

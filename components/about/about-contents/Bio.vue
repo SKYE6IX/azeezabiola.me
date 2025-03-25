@@ -1,13 +1,12 @@
 <template>
    <p class="bio">
       Experienced problem solver with strong proficiency in
-      <b>JavaScript</b> and 3+ years of experience of enjoying to build
-      user-friendly web applications and implementing
-      <b>frontend architecture</b>. Part of team that developed high terrific
-      web applications like <b>e-commerce</b>, <b>Landing pages</b> and so many
-      other products for other companies which helps their business do well
-      online. I’m proficient in <b>collaborating</b> with designers and also
-      backend team to
+      <b>JavaScript</b> with 4+ years of building sleek, user-friendly web apps
+      and solid <b>frontend architecture</b>. Part of team that developed high
+      terrific web applications like <b>e-commerce</b>, <b>Landing pages</b> and
+      so many other products for other companies which helps their business do
+      better online. I’m proficient in <b>collaborating</b> with
+      <b>designers</b> and also backend team to
       <b>integrate</b>
       frontend logic with server-side logic. My excellent communication skills
       and adaptability with my team increase productivity and seamless work
